@@ -8,7 +8,7 @@ import Shirts from '../../Home/Products/Shirts/Shirts';
 import T_Shirt from '../../Home/Products/T_Shirt/T_Shirt';
 import Pants from '../../Home/Products/Pants/Pants';
 import Jacket from '../../Home/Products/Jacket/Jacket';
-
+import './TabsProducts.css'
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -51,20 +51,21 @@ export default function TabsProducts() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Box sx={{ width : '75%', mx: 'auto' }} style={{}}>
+      <Box sx={{ width : '100%', mx: 'auto' }} style={{}}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-          <Tab label="Item Four" {...a11yProps(3)} />
+          <Tab label="T-Shirts" {...a11yProps(0)} />
+          <Tab label="Shirts" {...a11yProps(1)} />
+          <Tab label="Pants" {...a11yProps(2)} />
+          <Tab label="Jackets" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
-        <Shirts></Shirts>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
         <T_Shirt></T_Shirt>
       </TabPanel>
+      <TabPanel value={value} index={1}>
+        <Shirts></Shirts>
+      </TabPanel>
+      
       <TabPanel value={value} index={2}>
         <Pants></Pants>
       </TabPanel>

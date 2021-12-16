@@ -1,11 +1,14 @@
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useProducts from '../../../../Hooks/useProducts';
+import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 
 const T_Shirt = () => {
     const {products} = useProducts()
-    const TShirts = products.filter(p => p.category === 'T-shirt')
-    
+    const TShirts = products.filter(p => p.category === 'T-Shirt')
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
     return (
         <div>
             <Grid container spacing={2}>
@@ -29,7 +32,8 @@ const T_Shirt = () => {
                         <CardMedia
                           component="img"
                           height="300"
-                          image={`data:image/png;base64 ,${tShirt.img}`}
+                          // image={`data:image/png;base64 ,${tShirt.img}`}
+                          image = {tShirt.img}
                           alt="T-shirt"
                         />
                         <CardContent>
@@ -38,14 +42,17 @@ const T_Shirt = () => {
                           </Typography>
                         </CardContent> 
                         <CardActions>
-                        <Button size="small">Learn More</Button>
+                        <button className='btn btn-danger' >Add To Cart <i className="ms-2 fas fa-cart-plus"></i></button>
+                        <button onClick={handleOpen} className="btn btn-success">Quick View <i className=" ms-2 fas fa-search-plus"></i> </button>
+                        {/* <Link style={{textDecoration:'none', color:'white'}} to={`/`}  className="btn btn-success buy-btn">Buy Now <i className="ms-2 fas fa-arrow-circle-right"></i></Link> */}
                         </CardActions>                       
                       </Card>
                     </Grid>)
                 }
                 
             </Grid>
-                
+            
+            <QuickViewModal handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
         </div>
     );
 };

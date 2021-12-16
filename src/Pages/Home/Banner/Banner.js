@@ -26,14 +26,16 @@ const Banner = () => {
                 {
                     bannerItems.map(items => <Grid style={{overflow:'hidden'}} item xs={12} md={3}>
 
-                        <div className={item} style={{background : `url(${items.background}) no-repeat center center`, backgroundSize : 'cover', height : '90vh', width : '100%', transition : '1s'
+                        <div className={item} style={{background : `url(${items.background}) no-repeat center center`, backgroundSize : 'cover', height : '90vh', width : '100%', transition : '1s', display:'flex', alignItems:'center', justifyContent : 'center'
                         }}>
-                            <Typography sx={{mb:2}} variant="h1" component="div" gutterBottom>
+                            <div>
+                        <Typography sx={{mb:2}} variant="h1" component="div" gutterBottom>
                         {items.name}
                         </Typography>
                         <Typography variant="h4" component="div" gutterBottom>
                         Stock Items {items.stock}
                         </Typography>
+                            </div>
 
                         </div>   
                     </Grid>)

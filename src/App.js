@@ -1,6 +1,7 @@
 import './App.css';
 import Home from '../src/Pages/Home/Home/Home'
 import AddProducts from '../src/Pages/AddProducts/AddProducts'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
   BrowserRouter,
