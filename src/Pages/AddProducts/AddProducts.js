@@ -1,6 +1,5 @@
 import { Button, Input, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
 const AddProducts = () => {
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
@@ -44,7 +43,8 @@ const AddProducts = () => {
                 <br />
                 <TextField placeholder='Products Price' type='number' required onChange={e => setPrice(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
                 <br />
-                <TextField placeholder=' Gender' type='number' required onChange={e => setGender(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
+                
+                <TextField placeholder=' Gender'  required onChange={e => setGender(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
                 <br />
                 <TextField placeholder='Products Details' required onChange={e => setDescriptions(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} multiline
                 rows={10}/>
