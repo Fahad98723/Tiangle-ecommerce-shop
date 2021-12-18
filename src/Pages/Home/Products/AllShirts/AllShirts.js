@@ -1,13 +1,14 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import useProducts from '../../../../Hooks/useProducts';
 import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 import { productCountZero } from '../../../redux/action/productAction';
-const Pants = () => {
+
+const AllShirts = () => {
     const {products} = useProducts()
-    const Pants = products.filter(p => p.category === 'Pant')
+    const Shirts = products.filter(p => p.category === 'Shirt')
     const [open, setOpen] = React.useState(false);
     const [cartOpen, setCartOpen] = React.useState(false)
     const handleOpen = () => setOpen(true);
@@ -20,10 +21,10 @@ const Pants = () => {
     const [productId, setProductId] = useState('')
     console.log(productId)
     return (
-        <div>
+        <Container>
              <Grid container spacing={2}>
                 {
-                    Pants.slice(0,6).map(pant => <Grid item lg={4}>
+                    Shirts.map(shirt => <Grid item lg={4}>
                         <Card sx={{ maxWidth: '100%' }}>
                         <CardHeader
                           avatar={
@@ -36,27 +37,27 @@ const Pants = () => {
                               {/* <MoreVertIcon /> */}
                             </IconButton>
                           }
-                          title={pant.name}
+                          title={shirt.name}
                           subheader="September 14, 2016"
                         />
                         <CardMedia
                           component="img"
                           height="300"
                           // image={`data:image/png;base64 ,${tShirt.img}`}
-                          image = {pant.img}
+                          image = {shirt.img}
                           alt="T-shirt"
                         />
                         <CardContent>
                           <Typography variant="body2" color="text.secondary">
-                            {pant.descriptions}
+                            {shirt.descriptions}
                           </Typography>
                         </CardContent> 
                         <CardActions>
-                        <button onClick={() => handleCartOpen(setProductId(pant._id))} className='btn btn-danger' >Add To Cart <i className="ms-2 fas fa-cart-plus"></i></button>
+                        <button onClick={() => handleCartOpen(setProductId(shirt._id))} className='btn btn-danger' >Add To Cart <i className="ms-2 fas fa-cart-plus"></i></button>
                         
-                        <button  onClick={() => handleOpen(setProductId(pant._id))} className="btn btn-success">Quick View <i className=" ms-2 fas fa-search-plus"></i> </button>
+                        <button  onClick={() => handleOpen(setProductId(shirt._id))} className="btn btn-success">Quick View <i className=" ms-2 fas fa-search-plus"></i> </button>
                         {/* <Link style={{textDecoration:'none', color:'white'}} to={`/`}  className="btn btn-success buy-btn">Buy Now <i className="ms-2 fas fa-arrow-circle-right"></i></Link> */}
-                        </CardActions>                        
+                        </CardActions>                       
                       </Card>
                     </Grid>)
                 }
@@ -65,8 +66,8 @@ const Pants = () => {
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>
-        </div>
+        </Container>
     );
 };
 
-export default Pants;
+export default AllShirts;

@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import useProducts from '../../../../Hooks/useProducts';
@@ -22,10 +22,10 @@ const T_Shirt = () => {
     console.log(productId)
     return (
       
-        <div>
+        <Container>
             <Grid container spacing={2}>
                 {
-                    TShirts.map(tShirt => <Grid item lg={4}>
+                    TShirts.slice(0,6).map(tShirt => <Grid item lg={4}>
                         <Card sx={{ maxWidth: '100%' }}>
                         <CardHeader
                           avatar={
@@ -68,7 +68,7 @@ const T_Shirt = () => {
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>
-        </div>
+        </Container>
     );
 };
 

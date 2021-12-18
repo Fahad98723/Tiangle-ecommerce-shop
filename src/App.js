@@ -9,17 +9,27 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
+import AllTShirts from './Pages/Home/Products/AllTShirts.js/AllTShirts';
+import AllShirts from './Pages/Home/Products/AllShirts/AllShirts';
+import AllPants from './Pages/Home/Products/AllPants/AllPants';
+import AllJackets from './Pages/Home/Products/AllJackets/AllJackets';
+import NavigationBar from './Pages/Shared/Header/NavigationBar';
+import Footer from './Pages/Shared/Footer/Footer';
 function App() {
   return (
     <div className="App">
-       <BrowserRouter>
+      <BrowserRouter>
+      <NavigationBar></NavigationBar>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />
         <Route path="/addProduct" element={<AddProducts/>} />
-
+        <Route path="/tShirts" element={<AllTShirts/>} />
+        <Route path="/shirts" element={<AllShirts/>} />
+        <Route path="/pants" element={<AllPants/>} />
+        <Route path="/jackets" element={<AllJackets/>} />
       </Routes>
+      <Footer></Footer>
     </BrowserRouter>
     </div>
   );

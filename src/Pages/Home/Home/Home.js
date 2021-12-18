@@ -1,14 +1,14 @@
 import React from 'react';
-import NavBar from '../../Shared/Header/NavBar';
 import Banner from '../Banner/Banner';
+import Discount from '../Discount/Discount';
 import Products from '../Products/Products';
 
 const Home = () => {
     return (
         <div>
-            <NavBar></NavBar>
             <Banner></Banner>
             <Products></Products>
+            <Discount></Discount>
         </div>
     );
 };

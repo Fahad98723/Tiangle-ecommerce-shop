@@ -52,7 +52,7 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
             >
                 <Fade in={open}>
                 <Box sx={style}>
-                <Grid container spacing={2}>
+                <Grid container sx={{alignItems:'center'}} spacing={2}>
                     <Grid item xs={12} lg={6}>
                         <img style={{height:'100%', width:'500px'}} className='img-fluid' src={product.img} alt="" />
                     </Grid>

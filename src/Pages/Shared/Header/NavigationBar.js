@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-const NavBar = () => {
+const NavigationBar = () => {
 //   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -92,6 +92,10 @@ const NavBar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Link to='/home'>Home</Link>
             <Link to='/addProduct'>Add Product</Link>
+            <Link to='/tShirts'>T-Shirts</Link>
+            <Link to='/shirts'>Shirts</Link>
+            <Link to='/pants'>Pants</Link>
+            <Link to='/jackets'>Jackets</Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -128,4 +132,4 @@ const NavBar = () => {
     </AppBar>
   );
 };
-export default NavBar;
+export default NavigationBar;

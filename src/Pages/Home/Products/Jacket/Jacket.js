@@ -23,7 +23,7 @@ const Jacket = () => {
         <div>
              <Grid container spacing={2}>
                 {
-                    Jackets.map(jacket => <Grid item lg={4}>
+                    Jackets.slice(0,6).map(jacket => <Grid item lg={4}>
                         <Card sx={{ maxWidth: '100%' }}>
                         <CardHeader
                           avatar={

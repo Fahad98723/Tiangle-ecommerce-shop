@@ -1,11 +1,11 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import useProducts from '../../../../Hooks/useProducts';
 import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 import { productCountZero } from '../../../redux/action/productAction';
-const Pants = () => {
+const AllPants = () => {
     const {products} = useProducts()
     const Pants = products.filter(p => p.category === 'Pant')
     const [open, setOpen] = React.useState(false);
@@ -20,10 +20,10 @@ const Pants = () => {
     const [productId, setProductId] = useState('')
     console.log(productId)
     return (
-        <div>
+        <Container>
              <Grid container spacing={2}>
                 {
-                    Pants.slice(0,6).map(pant => <Grid item lg={4}>
+                    Pants.map(pant => <Grid item lg={4}>
                         <Card sx={{ maxWidth: '100%' }}>
                         <CardHeader
                           avatar={
@@ -65,8 +65,8 @@ const Pants = () => {
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>
-        </div>
+        </Container>
     );
 };
 
-export default Pants;
+export default AllPants;
