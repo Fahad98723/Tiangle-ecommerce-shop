@@ -96,9 +96,11 @@ const NavigationBar = () => {
             <Link to='/shirts'>Shirts</Link>
             <Link to='/pants'>Pants</Link>
             <Link to='/jackets'>Jackets</Link>
+            <Link to='/shoppingCart'>Cart</Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+          <i className="me-4 fas fa-cart-plus"></i>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />

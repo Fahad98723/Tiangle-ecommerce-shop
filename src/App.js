@@ -15,6 +15,7 @@ import AllPants from './Pages/Home/Products/AllPants/AllPants';
 import AllJackets from './Pages/Home/Products/AllJackets/AllJackets';
 import NavigationBar from './Pages/Shared/Header/NavigationBar';
 import Footer from './Pages/Shared/Footer/Footer';
+import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 function App() {
   return (
     <div className="App">
@@ -28,6 +29,7 @@ function App() {
         <Route path="/shirts" element={<AllShirts/>} />
         <Route path="/pants" element={<AllPants/>} />
         <Route path="/jackets" element={<AllJackets/>} />
+        <Route path="/shoppingCart" element={<ShoppingCart/>} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>
