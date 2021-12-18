@@ -1,0 +1,377 @@
+[
+    {
+      "_id": "61bb06d2737e5e7c0c74c24d",
+      "name": "The Crew Neck style",
+      "category": "T-Shirt",
+      "descriptions": "Probably, the most ubiquitous t-shirt that you will encounter on men is the crew neck t-shirt. It is characterized by a round, circular neckline that fits snugly at the neck and works best on men with long, narrow faces and sloped shoulders to create a well-rounded silhouette.  For a timeless look, nothing beats the crew neck t-shirt.",
+      "price": "96",
+      "gender": "Male",
+      "img": "https://i.ibb.co/ngNHTvn/pexels-gabby-k-6311136.jpg"
+    },
+    {
+      "_id": "61bb27092107f56e70d4ea71",
+      "name": "Baggy style t shirt",
+      "category": "T-Shirt",
+      "descriptions": "These have made a comeback from the 90’s and finds a place in an evolved fashionable man’s wardrobe along with the slim fits. But be cautious that a baggy fit does not necessarily mean oversized but rather something wider and loose in the sleeves area.",
+      "price": "95",
+      "gender": "Male",
+      "img": "https://i.ibb.co/1nQJmY1/adrian-ordonez-xrv-Wz-RVw-Am-M-unsplash.jpg"
+    },
+    {
+      "_id": "61bb27662107f56e70d4ea72",
+      "name": "Raglan sleeve types",
+      "category": "T-Shirt",
+      "descriptions": "Long sleeve t-shirts, which are available in three quarter and full- length sleeves, take inspiration from the baseball uniforms in the cut and design aspect. In this type of t-shirt, the sleeves are attached to the shirt on a diagonal seam rather than the generic straight up-and-down seam which is more common.",
+      "price": "100",
+      "gender": "Male",
+      "img": "https://i.ibb.co/42kc0gV/alex-perri-At-EKm5-PGE-unsplash.jpg"
+    },
+    {
+      "_id": "61bb290b2107f56e70d4ea73",
+      "name": "H&M Designer Denim Jacket",
+      "category": "Jacket",
+      "descriptions": "If you are a brand freak and willing to spend a few extra bucks for quality, then try this stylish men’s denim jacket from H&M. The dark blue jacket features a zipper instead of the conventional metallic button placket for ease of use. Apart from the usual details, the jacket also has additional elements like the diagonal front pockets and adjustable tabs on the hem. Did we mention that the material is made with a mix of organic and recycled cotton?",
+      "price": "500",
+      "gender": "Female",
+      "img": "https://i.ibb.co/d6wR2jw/ali-pazani-vnq-Zrogy-Nmc-unsplash.jpg"
+    },
+    {
+      "_id": "61bb296d2107f56e70d4ea74",
+      "name": "Distressed Solid Denim Jacket",
+      "category": "Jacket",
+      "descriptions": "Whether you call it “classy” or “trashy”, distressed denim will continue to rule the “Yeezy” fashion world. Here is one such piece you definitely want to own if you are a fan of the rap culture. The blue solid denim jacket features a detailed distressed finish to lend some cool vibes. Other details like the spread collar, front pockets, button closure, long sleeves and straight hem remain the same!",
+      "price": "620",
+      "gender": "Female",
+      "img": "https://i.ibb.co/PFSyPHt/andre-benz-Rzuiji1-m-Mc-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2a1e2107f56e70d4ea75",
+      "name": "LEVI’S JEANS",
+      "category": "Pant",
+      "descriptions": "Levi’s is unarguably one of the highest-selling denim brands in the world! It even holds the very first patent on the idea of using rivets on men’s jeans. Levi’s also holds the reputation for launching many game-changing designs and styles, which we, the modern generation, enjoy today. They have many stores across India and sell different varieties of jeans, t-shirts and other merchandise.",
+      "price": "100",
+      "gender": "Male",
+      "img": "https://i.ibb.co/vx3Fbbc/ivan-bogdanov-17q-C7l19h-MI-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2a692107f56e70d4ea76",
+      "name": "Stovepipe pants",
+      "category": "Pant",
+      "descriptions": "This term refers to the fitted silhouette of the pants. This term is used  almost synonymous with skinny jeans, so you know what it looks like. Stovepipe pants are very slim fitting pants with tapered legs (trousers or jeans). They look almost like leggings on you. Most of the stove pipe pants are designed ankle length. Other names for these pants are cigarette pants, pencil leg pants.",
+      "price": "300",
+      "gender": "Female",
+      "img": "https://i.ibb.co/vLFbgHp/apostolos-vamvouras-m-Psd-CM6qxd-A-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2ac52107f56e70d4ea77",
+      "name": " Parka",
+      "category": "Jacket",
+      "descriptions": "If it’s starting to get a bit too cold for a coach jacket or bomber it might be time to pull out the Parka. These type of jackets are best for colder months and when paired with the right outfit they can provide a great choice for smart casual attire. You can find a parka in a variety of different colour options and styles, we recommend keeping pockets and zippers to a minimum for a cleaner and smarter look. If you’ve always got your hands full a parka with pockets can be a great choice but make sure it’s well fitted and of high quality otherwise, you run the risk of looking cheap. Parkas are great when paired with denim jeans, chinos or dress pants but make sure your colour co-ord is on point. Brands to consider include Super Dry Japan, Patagonia, Stone Island and Mountain Research.",
+      "price": "200",
+      "gender": "Male",
+      "img": "https://i.ibb.co/QHS0LM0/brian-wangenheim-Oj-Q-ORM6-Yo-Y-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2b332107f56e70d4ea78",
+      "name": " Anorak",
+      "category": "T-Shirt",
+      "descriptions": "If you’re looking for a more casual and ready to wear rain jacket the anorak is perfect for wetter days. Very similar to the windbreaker but without the centre zipper, the anorak can be worn under casual circumstances as a simple pullover jacket. When paired with jeans, or cargos the anorak resembles a clean and simple casual outfit for the man who prefers a jacket with pockets and technical aesthetic. Consider brands such as Carharrt, Stussy, Uniqlo, and Nike.",
+      "price": "120",
+      "gender": "Male",
+      "img": "https://i.ibb.co/ysNTd1F/blake-cheek-su-D4l-Y8z-Nac-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2b962107f56e70d4ea79",
+      "name": "Art T-Shirt",
+      "category": "T-Shirt",
+      "descriptions": "If you’re looking for a more casual and ready to wear rain jacket the anorak is perfect for wetter days. Very similar to the windbreaker but without the centre zipper, the anorak can be worn under casual circumstances as a simple pullover jacket. When paired with jeans, or cargos the anorak resembles a clean and simple casual outfit for the man who prefers a jacket with pockets and technical aesthetic. Consider brands such as Carharrt, Stussy, Uniqlo, and Nike.",
+      "price": "60",
+      "gender": "Female",
+      "img": "https://i.ibb.co/ZG9GQSM/christian-bolt-VW5-Vjsk-NXZ8-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2bd22107f56e70d4ea7a",
+      "name": "Denim Solid Jacket",
+      "category": "Jacket",
+      "descriptions": "If you’re looking for a more casual and ready to wear rain jacket the anorak is perfect for wetter days. Very similar to the windbreaker but without the centre zipper, the anorak can be worn under casual circumstances as a simple pullover jacket. When paired with jeans, or cargos the anorak resembles a clean and simple casual outfit for the man who prefers a jacket with pockets and technical aesthetic. Consider brands such as Carharrt, Stussy, Uniqlo, and Nike.",
+      "price": "350",
+      "gender": "Female",
+      "img": "https://i.ibb.co/54mhNBy/darya-skuratovich-vx-Vpboj6-G0s-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2c002107f56e70d4ea7b",
+      "name": "Sleevless T-Shirt Red",
+      "category": "T-Shirt",
+      "descriptions": "If you’re looking for a more casual and ready to wear rain jacket the anorak is perfect for wetter days. Very similar to the windbreaker but without the centre zipper, the anorak can be worn under casual circumstances as a simple pullover jacket. When paired with jeans, or cargos the anorak resembles a clean and simple casual outfit for the man who prefers a jacket with pockets and technical aesthetic. Consider brands such as Carharrt, Stussy, Uniqlo, and Nike.",
+      "price": "200",
+      "gender": "Female",
+      "img": "https://i.ibb.co/gmwCZmy/david-hurley-Vmpdczcfyrs-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2c852107f56e70d4ea7c",
+      "name": "Motorcycle Jacket",
+      "category": "Jacket",
+      "descriptions": "The motorcycle jacket, also known as the biker jacket, has reached legendary fashion status. The motorcycle jacket can be worn by anyone and it always looks cool, it’s always in style and it pairs perfectly with casual and even semi-formal looks.",
+      "price": "450",
+      "gender": "Male",
+      "img": "https://i.ibb.co/0FH3LgM/dmitry-spravko-2cm-LR-I-hn0-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2cc72107f56e70d4ea7d",
+      "name": "Drainpipe trousers",
+      "category": "Pant",
+      "descriptions": "This term refers to the fitted silhouette of the pants. This term is used  almost synonymous with skinny jeans, so you know what it looks like. Stovepipe pants are very slim fitting pants with tapered legs (trousers or jeans). They look almost like leggings on you. Most of the stove pipe pants are designed ankle length. Other names for these pants are cigarette pants, pencil leg pants.",
+      "price": "150",
+      "gender": "Female",
+      "img": "https://i.ibb.co/syfm0cq/engin-akyurt-5ra-Pr-Ohb-KQo-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2ceb2107f56e70d4ea7e",
+      "name": "Champion T-Shirt",
+      "category": "T-Shirt",
+      "descriptions": "If you’re looking for a more casual and ready to wear rain jacket the anorak is perfect for wetter days. Very similar to the windbreaker but without the centre zipper, the anorak can be worn under casual circumstances as a simple pullover jacket. When paired with jeans, or cargos the anorak resembles a clean and simple casual outfit for the man who prefers a jacket with pockets and technical aesthetic. Consider brands such as Carharrt, Stussy, Uniqlo, and Nike.",
+      "price": "50",
+      "gender": "Male",
+      "img": "https://i.ibb.co/7R5YSWs/griffin-wooldridge-Fl0ji3-Phq-ZI-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2d1f2107f56e70d4ea7f",
+      "name": "Stirrup pants",
+      "category": "Pant",
+      "descriptions": "Pants very similar to leggings, the only difference being that they have a connecting strap that goes under the foot holding the pant in place like a belt.",
+      "price": "150",
+      "gender": "Male",
+      "img": "https://i.ibb.co/0DLcyxJ/houcine-ncib-Vny9ei-g7dw-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2d9d2107f56e70d4ea80",
+      "name": "H&M Denim Jacket with Collar",
+      "category": "Jacket",
+      "descriptions": "Get this cosy autumn look from H&M, which combines style with comfort. The relaxed-fit denim jacket features a shirt collar with faux shearling to lend a cosy look. The outwear also comes with a front button placket and long sleeves with button details on the cuffs. This smart casual jacket is an ideal pick for taking late evening strolls in cool weather without compromising on the chic factor!",
+      "price": "450",
+      "gender": "Male",
+      "img": "https://i.ibb.co/Zfq0Rs1/hunter-newton-qn-JCu7l-By1-Y-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2e002107f56e70d4ea81",
+      "name": "Skeletton Girl T-Shirt",
+      "category": "T-Shirt",
+      "descriptions": "Get this cosy autumn look from H&M, which combines style with comfort. The relaxed-fit denim jacket features a shirt collar with faux shearling to lend a cosy look. The outwear also comes with a front button placket and long sleeves with button details on the cuffs. This smart casual jacket is an ideal pick for taking late evening strolls in cool weather without compromising on the chic factor!",
+      "price": "60",
+      "gender": "Female",
+      "img": "https://i.ibb.co/XDgDcZ9/ian-dooley-TT-ROx-Wj9n-A-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2e6e2107f56e70d4ea82",
+      "name": "Skeleton Boy T-Shirt ",
+      "category": "T-Shirt",
+      "descriptions": "Get this cosy autumn look from H&M, which combines style with comfort. The relaxed-fit denim jacket features a shirt collar with faux shearling to lend a cosy look. The outwear also comes with a front button placket and long sleeves with button details on the cuffs. This smart casual jacket is an ideal pick for taking late evening strolls in cool weather without compromising on the chic factor!",
+      "price": "60",
+      "gender": "Male",
+      "img": "https://i.ibb.co/BgtwNv0/ian-dooley-wz-RKn-Aj-Kf4-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2e952107f56e70d4ea83",
+      "name": "White Hody",
+      "category": "Jacket",
+      "descriptions": "Get this cosy autumn look from H&M, which combines style with comfort. The relaxed-fit denim jacket features a shirt collar with faux shearling to lend a cosy look. The outwear also comes with a front button placket and long sleeves with button details on the cuffs. This smart casual jacket is an ideal pick for taking late evening strolls in cool weather without compromising on the chic factor!",
+      "price": "150",
+      "gender": "Male",
+      "img": "https://i.ibb.co/cktnpGq/joel-assuied-9bb4-Tj-YRNJY-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2ed72107f56e70d4ea84",
+      "name": "Wrangler Fancy Denim Jacket",
+      "category": "Jacket",
+      "descriptions": "Check out this relaxed fit denim jacket for men, which is a must-have in your closet! The dark blue jacket is an ideal pick to create a smart layered look on your tees and shirts. The piece stands apart from the other jackets in terms of the amount of detail. Contrast colour stitch adorns the jacket and lifts the look, while the button-down collar gives a boy-next-door feel!",
+      "price": "550",
+      "gender": "Male",
+      "img": "https://i.ibb.co/195n996/joel-assuied-l-A-72df-Ctlc-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2f0d2107f56e70d4ea85",
+      "name": "Denim Leather Jacket",
+      "category": "Jacket",
+      "descriptions": "Check out this relaxed fit denim jacket for men, which is a must-have in your closet! The dark blue jacket is an ideal pick to create a smart layered look on your tees and shirts. The piece stands apart from the other jackets in terms of the amount of detail. Contrast colour stitch adorns the jacket and lifts the look, while the button-down collar gives a boy-next-door feel!",
+      "price": "350",
+      "gender": "Female",
+      "img": "https://i.ibb.co/WGzKhMr/joshua-rondeau-Qu-EKZs3-JDv-Y-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2f452107f56e70d4ea86",
+      "name": "Cap sleeves t shirt style",
+      "category": "T-Shirt",
+      "descriptions": "The cap sleeves add a funky twist to the regular sleeves. They extend to some distance over the shoulders without covering under the arm to form a cap-like extension.",
+      "price": "120",
+      "gender": "Female",
+      "img": "https://i.ibb.co/YcVG0FR/kai-gabriel-De-Umcgcf3is-unsplash.jpg"
+    },
+    {
+      "_id": "61bb2fc42107f56e70d4ea87",
+      "name": "LOUIS PHILIPPE",
+      "category": "Pant",
+      "descriptions": "When it comes to fine clothing for a gentleman-like appearance, one cannot overlook Louis Philippe! The premium men’s wear brand is an ancillary company of Madhura Fashion and Lifestyle and is renowned for its premium fabrics and precision cuts. Fondly called LP by its customers and partners, the brand launched in 1989 was named after Louis Phillipe, a French king.",
+      "price": "320",
+      "gender": "Female",
+      "img": "https://i.ibb.co/DQ5RLq1/philip-martin-XFLW-b-Xj-ZVE-unsplash.jpg"
+    },
+    {
+      "_id": "61bb30092107f56e70d4ea88",
+      "name": "Cropped Pants",
+      "category": "Pant",
+      "descriptions": "This is a pants style with the hem cut just above the ankle. Flood pants is in this style – cut just above the ankle.",
+      "price": "250",
+      "gender": "Male",
+      "img": "https://i.ibb.co/xSDYBXZ/zahir-namane-i-Q0ou3-Bztzk-unsplash.jpg"
+    },
+    {
+      "_id": "61bb30412107f56e70d4ea89",
+      "name": "Dungarees",
+      "category": "Pant",
+      "descriptions": "These are trousers with a bib which is attached to the back with two adjustable straps.  They are made of very thick material. The bib usually has a pocket or sometimes patch.",
+      "price": "350",
+      "gender": "Male",
+      "img": "https://i.ibb.co/tPBNvKg/pexels-agatha-zambronelli-3289530.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb30782107f56e70d4ea8a",
+      "name": "Punk Pants",
+      "category": "Pant",
+      "descriptions": "These are pants with lots of stitching lines and pockets stitched on it for decorative purposes rather than functional. They are very popular among the young generation and the style varies with years.",
+      "price": "450",
+      "gender": "Male",
+      "img": "https://i.ibb.co/MndJggY/zahir-namane-Op-Gj-TVf-TMs-M-unsplash.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb30b72107f56e70d4ea8b",
+      "name": "TOMMY HILFIGER",
+      "category": "Pant",
+      "descriptions": "With over 1400 flagship stores in about 90 countries, Tommy Hilfiger is undoubtedly one of the highest selling brands in the world. It is based out of the USA and is a premium clothing company for both men and women. Most of the denim produced by the brand are influenced by mainstream American fashion. Especially, Tommy’s Slim jeans are quite popular with customers who vouch never to try other brands again.",
+      "price": "560",
+      "gender": "Male",
+      "img": "https://i.ibb.co/kg6ChVB/xavier-crook-9-Qf-Oc-Nr-RNu-Q-unsplash.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb30f72107f56e70d4ea8c",
+      "name": "SUPERDRY",
+      "category": "Pant",
+      "descriptions": "Superdry is a British clothing brand that recently made its entry into the Indian fashion market. It partnered with Reliance Brands Ltd. And has received unexpected success in a short period. Superdry denim is particularly popular for its high-quality fabrics and ultra-modern cuts. From regular fits to slim and tapered fits, ",
+      "price": "560",
+      "gender": "Male",
+      "img": "https://i.ibb.co/F7fbpvM/zahir-namane-s-FEZax-s-C0-unsplash.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb31632107f56e70d4ea8d",
+      "name": "Toreador pants",
+      "category": "Pant",
+      "descriptions": "These pants are cropped and close fitting and end somewhere near the calf, just under the knee. They resemble the pants that Spanish bullfighters wear and hence the name. ",
+      "price": "500",
+      "gender": "Female",
+      "img": "https://i.ibb.co/Jz0PQBt/pexels-nataliya-vaitkevich-5641392.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb31ac2107f56e70d4ea8e",
+      "name": "Van Heusen Shirts",
+      "category": "Shirt",
+      "descriptions": "Van Heusen gives you the power to choose with impressive collars, cuffs and everything in between for men shirts. These shirts boast of elegance in their magnificent patterns like solid, printed, self-design, striped, and checked. Look elegant at a dinner party in this formal shirt that will get all eyes on you. Pair it with a formal trouser, brown belt and shoes.",
+      "price": "300",
+      "gender": "Male",
+      "img": "https://i.ibb.co/BNycQNW/kenzie-kraft-9-QW52-Ry-BLao-unsplash.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb31d92107f56e70d4ea8f",
+      "name": "Peter England Shirts",
+      "category": "Shirt",
+      "descriptions": "Peter England is one of the largest menswear brands in India known for its standardized fits, fashionable styles and superior quality. Peter England’s shirts are a blend of comfort and style that makes it a top men’s shirt brand. From regular fit to slim fit and unique designs these shirts can be worn at a formal event and even on a casual meet up with friends. This white check pattern shirt can be worn as a semi-formal attire with denim, sneakers and a watch. Buy these branded shirts at discount online at Flipkart, Amazon and Myntra. If you were looking for something premium then Peter England can be the best white shirt brands in India.",
+      "price": "250",
+      "gender": "Male",
+      "img": "https://i.ibb.co/fDYgNt3/mario-klassen-t8yimz-M2b-EY-unsplash.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb320e2107f56e70d4ea90",
+      "name": "Arrow Shirts",
+      "category": "Shirt",
+      "descriptions": "Arrow is one of the oldest brands when it comes to men’s shirts and is owned by the PVH Company. The Arrow collared shirts made quite an impact during its original campaign that ran from 1905-31 and continues to be widely popular even today. Different shirt patterns and designs make Arrow one of the top men’s shirts brands to purchase in India. From formal to casual, you can find everything available at reasonable prices. Arrow shirts are a perfect example of elegance, so this season fill in your wardrobe with its unique designs. This formal Arrow shirt can be paired with grey trousers, a black belt, and dress shoes, making it one of the best shirt brands for men in India.",
+      "price": "250",
+      "gender": "Male",
+      "img": "https://i.ibb.co/c6n2wRT/pexels-emre-keshavarz-3889627.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb323c2107f56e70d4ea91",
+      "name": "John Players Shirts",
+      "category": "Shirt",
+      "descriptions": "ITC stepped into the fashion segment with John Players in 2002. The brand stands for fun, freedom, and friendship and brings an amazing range of men formal shirts. While John Players has always been known for its formal wear, it has now opened up its wings with its fun casual wear collection. John Players shirts are bound to give you a comfortable experience with its great fabric and amazing fit. Wear this fun check printed shirt on a date night with a pair of chinos, watch, and oxfords.",
+      "price": "600",
+      "gender": "Male",
+      "img": "https://i.ibb.co/hsrW3Dz/pexels-emre-keshavarz-3889629.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb32662107f56e70d4ea92",
+      "name": "Wills Lifestyle Shirts",
+      "category": "Shirt",
+      "descriptions": "ITC’s Wills Lifestyle brings a premium wardrobe for men and women giving consumers a delightful shopping experience. It has a fine collection of formal, semi-formal and casual shirts which makes it one of the top men’s shirt brands. Wills Lifestyle shirts never fail to impress us with its amazing designs and eccentric quality. This formal shirt looks classy with a pair of folded trousers, oxfords and a watch.",
+      "price": "250",
+      "gender": "Male",
+      "img": "https://i.ibb.co/B2HJXsR/pexels-alex-green-5699844.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb32aa2107f56e70d4ea93",
+      "name": " Shearling Jacket",
+      "category": "Jacket",
+      "descriptions": "Get your Tom Cruise fit off with a shearling jacket this winter. These type of jackets are show-stopping pieces that really complement a man when worn correctly. Shearling coats and jackets are traditionally made from lambskin, sheepskin or pelt. The shearling jacket is not a cheap investment, to say the least, you’re adding extra material and style to an already expensive leather jacket. While the jacket is ethically dubious and very expensive, you can find quality faux sterling jackets that are ethically conscience and provide almost identical aesthetic properties. These jackets are perfect for smart events when paired with dress pants. If you’re looking for a casual look opt for jeans.",
+      "price": "950",
+      "gender": "Male",
+      "img": "https://i.ibb.co/NSrgWg4/noah-black-Qax-Wdj4-X9s-A-unsplash.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb32ee2107f56e70d4ea94",
+      "name": "Golden Shirt",
+      "category": "Shirt",
+      "descriptions": "Get your Tom Cruise fit off with a shearling jacket this winter. These type of jackets are show-stopping pieces that really complement a man when worn correctly. Shearling coats and jackets are traditionally made from lambskin, sheepskin or pelt. The shearling jacket is not a cheap investment, to say the least, you’re adding extra material and style to an already expensive leather jacket. While the jacket is ethically dubious and very expensive, you can find quality faux sterling jackets that are ethically conscience and provide almost identical aesthetic properties. These jackets are perfect for smart events when paired with dress pants. If you’re looking for a casual look opt for jeans.",
+      "price": "350",
+      "gender": "Female",
+      "img": "https://i.ibb.co/JyVVMGb/pexels-pouriya-kafaei-6031459.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb331e2107f56e70d4ea95",
+      "name": "Sleeveless  t shirt style",
+      "category": "T-Shirt",
+      "descriptions": "Also known as the tank top, the sleeveless t-shirt has a deeper neck and the straps vary in width from being very thin to almost covering the shoulders. It is perfect for the heavily muscular body as you can show off your toned upper torso with panache.  ",
+      "price": "205",
+      "gender": "Male",
+      "img": "https://i.ibb.co/sVpn4z2/mubariz-mehdizadeh-Py8-F6-h-Rn5o-unsplash.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb33462107f56e70d4ea96",
+      "name": "Lee Shirts",
+      "category": "Shirt",
+      "descriptions": "Inspired by vintage heritage, Lee India has some of the finest shirts on the market. Its designs are timeless, versatile, and enduring making it a top choice for the modern youth. Lee has been transforming practical and durable workwear with contemporary and trendy apparel.",
+      "price": "200",
+      "gender": "Male",
+      "img": "https://i.ibb.co/PgRXxT2/pexels-jeffrey-reed-769728.jpg",
+      "quantity" : 1
+    },
+    {
+      "_id": "61bb33742107f56e70d4ea97",
+      "name": " Flying Machine Shirts",
+      "category": "Shirt",
+      "descriptions": "One of the best casual shirts brand in India, Flying machine is every man’s favorite. There is a whole range of unique patterns that suit well men of all ages and tastes. Flying Machine shirts are made from premium fabric that is breathable and suitable for all weathers. The entire collection has different sleeve lengths that you can choose from.",
+      "price": "350",
+      "gender": "Male",
+      "img": "https://i.ibb.co/jG7DTkc/pexels-nataliya-vaitkevich-5078530.jpg",
+      "quantity" : 1
+    }
+  ]

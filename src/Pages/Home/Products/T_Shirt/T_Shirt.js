@@ -1,15 +1,27 @@
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import useProducts from '../../../../Hooks/useProducts';
+import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
+import { productCountZero } from '../../../redux/action/productAction';
 
 const T_Shirt = () => {
     const {products} = useProducts()
     const TShirts = products.filter(p => p.category === 'T-Shirt')
     const [open, setOpen] = React.useState(false);
+    const [cartOpen, setCartOpen] = React.useState(false)
     const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
+    const handleCartOpen = () => setCartOpen(true);
+    const handleCartClose = () => setCartOpen(false);
+    const dispatch = useDispatch()
+    const handleClose = () => {
+      dispatch(productCountZero(0))
+      setOpen(false)};
+    const [productId, setProductId] = useState('')
+    console.log(productId)
     return (
+      
         <div>
             <Grid container spacing={2}>
                 {
@@ -37,13 +49,14 @@ const T_Shirt = () => {
                           alt="T-shirt"
                         />
                         <CardContent>
-                          <Typography variant="body2" color="text.secondary">
-                            {tShirt.descriptions}
+                          <Typography sx={{textAlign:'left'}} variant="h5" color="text.secondary">
+                          {tShirt.name}
                           </Typography>
                         </CardContent> 
                         <CardActions>
-                        <button className='btn btn-danger' >Add To Cart <i className="ms-2 fas fa-cart-plus"></i></button>
-                        <button onClick={handleOpen} className="btn btn-success">Quick View <i className=" ms-2 fas fa-search-plus"></i> </button>
+                        <button onClick={() => handleCartOpen(setProductId(tShirt._id))} className='btn btn-danger' >Add To Cart <i className="ms-2 fas fa-cart-plus"></i></button>
+                        
+                        <button  onClick={() => handleOpen(setProductId(tShirt._id))} className="btn btn-success">Quick View <i className=" ms-2 fas fa-search-plus"></i> </button>
                         {/* <Link style={{textDecoration:'none', color:'white'}} to={`/`}  className="btn btn-success buy-btn">Buy Now <i className="ms-2 fas fa-arrow-circle-right"></i></Link> */}
                         </CardActions>                       
                       </Card>
@@ -52,7 +65,9 @@ const T_Shirt = () => {
                 
             </Grid>
             
-            <QuickViewModal handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
+            <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
+            <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
+            </AddToCartModal>
         </div>
     );
 };

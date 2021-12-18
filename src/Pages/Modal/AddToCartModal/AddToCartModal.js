@@ -19,12 +19,12 @@ const style = {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    height:'500px',
+    height:'300px',
     overflowY : 'scroll',
     p: 4,
   };
 
-const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
+const AddToCartModal = ({handleCartOpen, handleCartClose, cartOpen,productId}) => {
     const [product,setProduct] = useState({})
     useEffect(() => {
         fetch(`http://localhost:5000/products/${productId}`)
@@ -34,49 +34,39 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
     console.log(product);
    const dispatch = useDispatch()
    const count = useSelector((state) => state.products.count)
-   const cartProduct = {...product}
-   cartProduct.quantity = count
     return (      
         <div>
              <div>
             <Modal
                 aria-labelledby="transition-modal-title"
                 aria-describedby="transition-modal-description"
-                open={open}
-                onClose={handleClose}
+                open={cartOpen}
+                onClose={handleCartClose}
                 closeAfterTransition
                 BackdropComponent={Backdrop}
                 BackdropProps={{
                 timeout: 500,
                 }}
             >
-                <Fade in={open}>
+                <Fade in={cartOpen}>
                 <Box sx={style}>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} lg={6}>
-                        <img style={{height:'100%', width:'500px'}} className='img-fluid' src={product.img} alt="" />
+                <Grid container sx={{alignItems:'center'}} spacing={2}>
+                    <Grid item xs={12} lg={4}>
+                        <img style={{height:'100%', width:'100%'}} className='img-fluid' src={product.img} alt="" />
                     </Grid>
-                    <Grid item xs={12} lg={6}>
-                        <Typography variant='h4'>{product.name}</Typography>
-                        <Typography variant='h3'>${product.price}</Typography>
-                        <Typography variant='body1'>{product.descriptions}</Typography>
-                        <Typography variant='body2'>{product.category}</Typography>
+                    <Grid item xs={12} lg={8}>
+                        <Typography variant='h5'>Name : {product.name}</Typography>
+                        <Typography variant='h6'>Quantity : 1</Typography>
+                        <Typography variant='body1'>Product Category : {product.category}</Typography>
+                        <Typography variant='body2'>Cart Subtotal : {product.category}</Typography>
 
-                        <div className="d-flex justify-content-between">
-                        <div className="count">
-                        <i onClick={() => dispatch(productMinus(1))} className="fas fs-5 fw-bold fa-minus text-danger me-1"></i>
-
-                        {/* <input style={{width : '40px', fontSize:'20px'}} className= 'mb-3 py-1 rounded border-0 text-center' type="number" min='0' name="" readOnly value= {count} id="" /> */}
-
-                        <span className='fs-4 fw-bold mx-3'>{count}</span>
-
-                        <i onClick={() => dispatch(productPlus(1))} className="fas fs-5 fw-bold fa-plus text-danger"></i>
-                        </div>
-                        <div className="cartButton">
-                            <button onClick={() => dispatch(productsAddToCart(cartProduct))} className="btn btn-danger">
-                                Add To Cart
+                        <div className="d-flex justify-content-between mt-3">
+                            <button onClick={handleCartClose} className="btn btn-danger">
+                                Continue Shopping
                             </button>
-                        </div>
+                            <button className="btn btn-danger">
+                                Proceed To Cart
+                            </button>
                         </div>
                     </Grid>
                 </Grid>
@@ -88,4 +78,4 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
     );
 };
 
-export default QuickViewModal;
+export default AddToCartModal;
