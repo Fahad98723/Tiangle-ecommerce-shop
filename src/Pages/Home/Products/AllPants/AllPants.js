@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,7 @@ const AllPants = () => {
       navigate(`/product/${id}`);
     }
     return (
-        <div>
+        <Container className='py-5'>
              <Grid container spacing={2}>
                 {
                     Pants.map(pant => <Grid item lg={4}>
@@ -70,7 +70,7 @@ const AllPants = () => {
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>
-        </div>
+        </Container>
     );
 };
 

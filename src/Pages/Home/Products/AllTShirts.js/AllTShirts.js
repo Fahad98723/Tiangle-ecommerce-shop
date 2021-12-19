@@ -28,7 +28,7 @@ const AllTShirts = () => {
     }
     return (
       
-        <Container>
+        <Container className='py-5'>
             <Grid container spacing={2}>
                 {
                     TShirts.map(tShirt => <Grid item lg={4}>

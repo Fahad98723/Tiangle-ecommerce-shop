@@ -17,9 +17,10 @@ import NavigationBar from './Pages/Shared/Header/NavigationBar';
 import Footer from './Pages/Shared/Footer/Footer';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 import SingleProduct from './Pages/SingleProduct/SingleProduct';
+import Login from './Pages/Login/Login';
 function App() {
   return (
-    <div className="App">
+    <div className="body">
       <BrowserRouter>
       <NavigationBar></NavigationBar>
       <Routes>
@@ -31,8 +32,9 @@ function App() {
         <Route path="/pants" element={<AllPants/>} />
         <Route path="/jackets" element={<AllJackets/>} />
         <Route path="/shoppingCart" element={<ShoppingCart/>} />
-        <Route path="/product/:id" element={<SingleProduct/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
+        
       <Footer></Footer>
     </BrowserRouter>
     </div>

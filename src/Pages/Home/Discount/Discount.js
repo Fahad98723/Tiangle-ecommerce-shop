@@ -14,7 +14,9 @@ const Discount = () => {
         backgroundImage : `url('${fullSet[0]?.img}')`,
         backgroundRepeat:'no-repeat',
         backgroundSize : 'cover',
-        padding:'200px 0px'
+        height:'400px',
+        display:'flex',
+        alignItems : 'center'
     }
     return (
         <Container  sx={{py:5}}>
@@ -35,11 +37,14 @@ const Discount = () => {
                 <Typography  variant = 'h4'>
                     {fullSet[0]?.name}
                 </Typography>
+                <Link to={`/product/${fullSet[0]?._id}`} className="btn btn-danger mt-3">Shop Now</Link>
                 </div>
                 </Grid>
                 <Grid style={{background : `url('${fullSet[1]?.img}')`,backgroundRepeat:'no-repeat',
         backgroundSize : 'cover',
-        padding:'180px 0px'}} item xs={12} lg={6}>
+        height:'300px',
+        display:'flex',
+        alignItems : 'center'}} item xs={12} lg={6}>
                 <div className="details ms-3">
                 <Typography  variant = 'h3'>
                     New Arrivals
@@ -47,11 +52,14 @@ const Discount = () => {
                 <Typography  variant = 'h4'>
                     {fullSet[1]?.name}
                 </Typography>
+                <Link to={`/product/${fullSet[1]?._id}`} className="btn btn-danger mt-3">Shop Now</Link>
                 </div>
                 </Grid>
                 <Grid item style={{background : `url('${fullSet[2]?.img}')`,backgroundRepeat:'no-repeat',
         backgroundSize : 'cover',
-        padding:'180px 0px'}} xs={12} lg={6}>
+        height:'300px',
+        display:'flex',
+        alignItems : 'center'}} xs={12} lg={6}>
                    <div className="details ms-3">
                 <Typography  variant = 'h3'>
                     New Arrivals

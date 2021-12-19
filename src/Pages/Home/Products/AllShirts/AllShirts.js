@@ -26,7 +26,7 @@ const AllShirts = () => {
       navigate(`/product/${id}`);
     }
     return (
-        <Container>
+        <Container className='py-5'>
              <Grid container spacing={2}>
                 {
                     Shirts.map(shirt => <Grid item lg={4}>

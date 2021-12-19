@@ -17,19 +17,19 @@ const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const NavigationBar = () => {
-//   const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-//   const handleOpenNavMenu = (event) => {
-//     setAnchorElNav(event.currentTarget);
-//   };
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-//   const handleCloseNavMenu = () => {
-//     setAnchorElNav(null);
-//   };
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
@@ -54,14 +54,14 @@ const NavigationBar = () => {
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
-            //   onClick={handleOpenNavMenu}
+              onClick={handleOpenNavMenu}
               color="inherit"
             >
               <MenuIcon />
             </IconButton>
             <Menu
               id="menu-appbar"
-            //   anchorEl={anchorElNav}
+              anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
                 horizontal: 'left',
@@ -71,13 +71,19 @@ const NavigationBar = () => {
                 vertical: 'top',
                 horizontal: 'left',
               }}
-            //   open={Boolean(anchorElNav)}
-            //   onClose={handleCloseNavMenu}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}  
               sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
+                display: { xs: 'block', md: 'none', width:'50%' },
+              }}            
             >
-              <Link to='/home'>Home</Link>
+              <Link className='btn btn-dark m-3 w-75 mr-0' to='/home'>Home</Link>
+            <Link className='btn btn-dark m-3 w-75' to='/addProduct'>Add Product</Link>
+            <Link className='btn btn-dark m-3 w-75' to='/tShirts'>T-Shirts</Link>
+            <Link className='btn btn-dark m-3 w-75' to='/shirts'>Shirts</Link>
+            <Link className='btn btn-dark m-3 w-75' to='/pants'>Pants</Link>
+            <Link className='btn btn-dark m-3 w-75' to='/jackets'>Jackets</Link>
+            <Link className='btn btn-dark m-3 w-75' to='/shoppingCart'>Cart</Link>
               
             </Menu>
           </Box>
@@ -122,11 +128,11 @@ const NavigationBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {/* {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              
+                <MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center"><Link to='/login'>Log in</Link></Typography>
                 </MenuItem>
-              ))} */}
+           
             </Menu>
           </Box>
         </Toolbar>
