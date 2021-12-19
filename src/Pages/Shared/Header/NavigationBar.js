@@ -90,13 +90,13 @@ const NavigationBar = () => {
             LOGO
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <Link to='/home'>Home</Link>
-            <Link to='/addProduct'>Add Product</Link>
-            <Link to='/tShirts'>T-Shirts</Link>
-            <Link to='/shirts'>Shirts</Link>
-            <Link to='/pants'>Pants</Link>
-            <Link to='/jackets'>Jackets</Link>
-            <Link to='/shoppingCart'>Cart</Link>
+            <Link className='btn btn-dark me-2' to='/home'>Home</Link>
+            <Link className='btn btn-dark me-2' to='/addProduct'>Add Product</Link>
+            <Link className='btn btn-dark me-2' to='/tShirts'>T-Shirts</Link>
+            <Link className='btn btn-dark me-2' to='/shirts'>Shirts</Link>
+            <Link className='btn btn-dark me-2' to='/pants'>Pants</Link>
+            <Link className='btn btn-dark me-2' to='/jackets'>Jackets</Link>
+            <Link className='btn btn-dark me-2' to='/shoppingCart'>Cart</Link>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

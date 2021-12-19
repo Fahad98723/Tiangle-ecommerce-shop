@@ -1,6 +1,7 @@
 import { Avatar,  Card, CardActions, CardContent, CardHeader, CardMedia, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../../Hooks/useProducts';
 import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
@@ -19,12 +20,16 @@ const AllJackets = () => {
       setOpen(false)};
     const [productId, setProductId] = useState('')
     console.log(productId)
+    let navigate = useNavigate();
+    function handleClick(id) {
+      navigate(`/product/${id}`);
+    }
     return (
         <div>
              <Grid container spacing={2}>
                 {
                     Jackets.map(jacket => <Grid item lg={4}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card onClick={() => handleClick(jacket._id)} sx={{ maxWidth: '100%' }}>
                         <CardHeader
                           avatar={
                             <Avatar sx={{}} aria-label="recipe">
@@ -47,8 +52,8 @@ const AllJackets = () => {
                           alt="T-shirt"
                         />
                         <CardContent>
-                          <Typography variant="body2" color="text.secondary">
-                            {jacket.descriptions}
+                          <Typography sx={{textAlign:'left'}} variant="h5" color="text.secondary">
+                          {jacket.name}
                           </Typography>
                         </CardContent> 
                         <CardActions>

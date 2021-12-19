@@ -16,6 +16,7 @@ import AllJackets from './Pages/Home/Products/AllJackets/AllJackets';
 import NavigationBar from './Pages/Shared/Header/NavigationBar';
 import Footer from './Pages/Shared/Footer/Footer';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
+import SingleProduct from './Pages/SingleProduct/SingleProduct';
 function App() {
   return (
     <div className="App">
@@ -30,6 +31,7 @@ function App() {
         <Route path="/pants" element={<AllPants/>} />
         <Route path="/jackets" element={<AllJackets/>} />
         <Route path="/shoppingCart" element={<ShoppingCart/>} />
+        <Route path="/product/:id" element={<SingleProduct/>} />
       </Routes>
       <Footer></Footer>
     </BrowserRouter>

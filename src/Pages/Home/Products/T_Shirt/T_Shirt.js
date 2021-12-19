@@ -1,6 +1,7 @@
 import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import useProducts from '../../../../Hooks/useProducts';
 import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
@@ -20,13 +21,18 @@ const T_Shirt = () => {
       setOpen(false)};
     const [productId, setProductId] = useState('')
     console.log(productId)
+
+    let navigate = useNavigate();
+    function handleClick(id) {
+      navigate(`/product/${id}`);
+    }
     return (
       
         <Container>
             <Grid container spacing={2}>
                 {
                     TShirts.slice(0,6).map(tShirt => <Grid item lg={4}>
-                        <Card sx={{ maxWidth: '100%' }}>
+                        <Card onClick={() => handleClick(tShirt._id)} sx={{ maxWidth: '100%' }}>
                         <CardHeader
                           avatar={
                             <Avatar sx={{}} aria-label="recipe">
