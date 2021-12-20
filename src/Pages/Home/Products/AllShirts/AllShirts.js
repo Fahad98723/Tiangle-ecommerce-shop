@@ -30,22 +30,9 @@ const AllShirts = () => {
              <Grid container spacing={2}>
                 {
                     Shirts.map(shirt => <Grid item lg={4}>
-                        <Card onClick={() => handleClick(shirt._id)} sx={{ maxWidth: '100%' }}>
-                        <CardHeader
-                          avatar={
-                            <Avatar sx={{}} aria-label="recipe">
-                              R
-                            </Avatar>
-                          }
-                          action={
-                            <IconButton aria-label="settings">
-                              {/* <MoreVertIcon /> */}
-                            </IconButton>
-                          }
-                          title={shirt.name}
-                          subheader="September 14, 2016"
-                        />
-                        <CardMedia
+                        <Card  sx={{ maxWidth: '100%' }}>
+                        
+                        <CardMedia onClick={() => handleClick(shirt._id)}
                           component="img"
                           height="300"
                           // image={`data:image/png;base64 ,${tShirt.img}`}

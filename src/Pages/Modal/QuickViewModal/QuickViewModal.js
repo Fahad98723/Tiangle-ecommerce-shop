@@ -57,6 +57,7 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
                         <img style={{height:'100%', width:'500px'}} className='img-fluid' src={product.img} alt="" />
                     </Grid>
                     <Grid item xs={12} lg={6}>
+                        
                         <Typography variant='h4'>{product.name}</Typography>
                         <Typography variant='h3'>${product.price}</Typography>
                         <Typography variant='body1'>{product.descriptions}</Typography>

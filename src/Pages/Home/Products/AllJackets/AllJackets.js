@@ -29,22 +29,9 @@ const AllJackets = () => {
              <Grid container spacing={2}>
                 {
                     Jackets.map(jacket => <Grid item lg={4}>
-                        <Card onClick={() => handleClick(jacket._id)} sx={{ maxWidth: '100%' }}>
-                        <CardHeader
-                          avatar={
-                            <Avatar sx={{}} aria-label="recipe">
-                              R
-                            </Avatar>
-                          }
-                          action={
-                            <IconButton aria-label="settings">
-                              {/* <MoreVertIcon /> */}
-                            </IconButton>
-                          }
-                          title={jacket.name}
-                          subheader="September 14, 2016"
-                        />
-                        <CardMedia
+                        <Card  sx={{ maxWidth: '100%' }}>
+                        
+                        <CardMedia onClick={() => handleClick(jacket._id)}
                           component="img"
                           height="300"
                           // image={`data:image/png;base64 ,${tShirt.img}`}

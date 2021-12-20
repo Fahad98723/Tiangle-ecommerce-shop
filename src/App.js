@@ -18,6 +18,7 @@ import Footer from './Pages/Shared/Footer/Footer';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 import SingleProduct from './Pages/SingleProduct/SingleProduct';
 import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
 function App() {
   return (
     <div className="body">
@@ -33,6 +34,8 @@ function App() {
         <Route path="/jackets" element={<AllJackets/>} />
         <Route path="/shoppingCart" element={<ShoppingCart/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        <Route path="/product/:id" element={<SingleProduct/>} />
       </Routes>
         
       <Footer></Footer>

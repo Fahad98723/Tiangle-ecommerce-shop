@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import useFirebase from '../../../Hooks/useFirebase';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -35,6 +37,8 @@ const NavigationBar = () => {
     setAnchorElUser(null);
   };
 
+  const user = useSelector(state => state.products.user)
+  const {logOut} = useFirebase()
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -109,7 +113,7 @@ const NavigationBar = () => {
           <i className="me-4 fas fa-cart-plus"></i>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={user?.photoURL ? user.photoURL : "/static/images/avatar/2.jpg"} />
               </IconButton>
             </Tooltip>
             <Menu
@@ -128,10 +132,25 @@ const NavigationBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              
+                
                 <MenuItem  onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center"><Link to='/login'>Log in</Link></Typography>
+                  {
+                    !user?.email ?<Link to='/login'>Log in</Link> : ''  
+                  }
                 </MenuItem>
+                {
+                  user?.email ? <><MenuItem  onClick={handleCloseNavMenu}>
+                  <Typography sx={{display : 'block'}} textAlign="center">{user?.displayName}</Typography>
+                </MenuItem> <MenuItem  onClick={handleCloseNavMenu}>
+                <Link to= ''>Dashboard</Link>
+              </MenuItem>
+              
+              <MenuItem  onClick={handleCloseNavMenu}>
+              <i onClick={logOut} className="fas fa-sign-out-alt"></i>
+              </MenuItem></>: ''
+                
+                }
+                
            
             </Menu>
           </Box>

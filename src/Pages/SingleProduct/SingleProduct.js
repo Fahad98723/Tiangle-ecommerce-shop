@@ -2,7 +2,7 @@ import { Container, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { productMinus, productPlus, productsAddToCart } from '../redux/action/productAction';
+import { productCountZero, productMinus, productPlus, productsAddToCart } from '../redux/action/productAction';
 
 const SingleProduct = () => {
     const {id} = useParams()
@@ -10,9 +10,12 @@ const SingleProduct = () => {
     useEffect(() => {
         fetch(`http://localhost:5000/products/${id}`)
         .then(res => res.json())
-        .then(data => setProduct(data))
+        .then(data => {
+            setProduct(data)
+            dispatch(productCountZero(0))
+        })
     },[id])
-    console.log(product);
+
    const dispatch = useDispatch()
    const count = useSelector((state) => state.products.count)
    const cartProduct = {...product}
@@ -34,7 +37,7 @@ const SingleProduct = () => {
 
                         {/* <input style={{width : '40px', fontSize:'20px'}} className= 'mb-3 py-1 rounded border-0 text-center' type="number" min='0' name="" readOnly value= {count} id="" /> */}
 
-                        <span className='fs-4 fw-bold mx-3'>{count}</span>
+                        <span  className='fs-4 fw-bold mx-3'>{count}</span>
 
                         <i onClick={() => dispatch(productPlus(1))} className="fas fs-5 fw-bold fa-plus text-danger"></i>
                         </div>
