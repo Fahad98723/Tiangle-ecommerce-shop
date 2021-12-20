@@ -1,4 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Imperial+Script&family=Love+Light&family=Moo+Lah+Lah&family=Poppins&family=Rock+3D&family=Twinkle+Star&display=swap');
 .body{
   background: #1a1d24;
   color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.quickview-modal{
+  font-family: 'Poppins', sans-serif;
 }

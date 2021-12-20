@@ -13,15 +13,7 @@ const useFirebase = () => {
     console.log(user);
     const [error, setError] = useState('')
     const googleSingIn = () => {     
-        signInWithPopup(auth, googleProvider)
-        .then((result) => {   
-            const user = result.user;
-            setError('')
-
-        }).catch((error) => {
-            const errorMessage = error.message;
-            setError(errorMessage);
-        });
+        return signInWithPopup(auth, googleProvider)      
     }
 
     const signUpWithEmailAndPass = (name, email, password,  image) => {
@@ -33,6 +25,7 @@ const useFirebase = () => {
             updateProfile(auth.currentUser, {
                 displayName: name, photoURL: image
               }).then(() => {
+                  saveUser(email, name, 'POST')
                 setError('')
               }).catch((error) => {
                 setError(error.errorMessage)
@@ -45,18 +38,8 @@ const useFirebase = () => {
         });
     }
     const signInWithEmailAndPass = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        setError('')
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setError(errorMessage)
-    });
-    }
+        return signInWithEmailAndPassword(auth, email, password)       
+        }
     const logOut = () => {
         signOut(auth).then(() => {
             dispatch(setUser({}))
@@ -76,7 +59,22 @@ const useFirebase = () => {
           });
     },[auth, dispatch])
 
-    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error}
+    const saveUser = (email, name, method) => {
+        const user = {email, name}
+        fetch('http://localhost:5000/users', {
+            method : method,
+            headers : {
+                'content-type' : 'application/json'
+            },
+            body : JSON.stringify(user)
+        })
+    }
+
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/users',{})
+    // },[])
+
+    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error, setError, saveUser}
 }
 
 export default useFirebase

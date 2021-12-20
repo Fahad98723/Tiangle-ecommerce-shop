@@ -55,10 +55,10 @@ const AddToCartModal = ({handleCartOpen, handleCartClose, cartOpen,productId}) =
                         <img style={{height:'100%', width:'100%'}} className='img-fluid' src={product.img} alt="" />
                     </Grid>
                     <Grid item xs={12} lg={8}>
-                        <Typography variant='h5'>Name : {product.name}</Typography>
-                        <Typography variant='h6'>Quantity : 1</Typography>
-                        <Typography variant='body1'>Product Category : {product.category}</Typography>
-                        <Typography variant='body2'>Cart Subtotal : {product.category}</Typography>
+                        <Typography style={{fontFamily: 'Poppins, sans-serif'}} variant='h5'>Name : {product.name}</Typography>
+                        <Typography style={{fontFamily: 'Poppins, sans-serif'}} variant='h6'>Quantity : 1</Typography>
+                        <Typography style={{fontFamily: 'Poppins, sans-serif'}} variant='body1'>Product Category : {product.category}</Typography>
+                        <Typography style={{fontFamily: 'Poppins, sans-serif'}} variant='body2'>Cart Subtotal : {product.category}</Typography>
 
                         <div className="d-flex justify-content-between mt-3">
                             <button onClick={handleCartClose} className="btn btn-danger">

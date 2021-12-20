@@ -58,11 +58,9 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
                     </Grid>
                     <Grid item xs={12} lg={6}>
                         
-                        <Typography variant='h4'>{product.name}</Typography>
-                        <Typography variant='h3'>${product.price}</Typography>
-                        <Typography variant='body1'>{product.descriptions}</Typography>
-                        <Typography variant='body2'>{product.category}</Typography>
-
+                        <h2 style={{fontFamily: 'Poppins, sans-serif'}}>{product.name}</h2>
+                        <h3 style={{fontFamily: 'Poppins, sans-serif'}}>Price : ${product.price}</h3>
+                        <p style={{fontFamily: 'Poppins, sans-serif'}}>{product.descriptions}</p>
                         <div className="d-flex justify-content-between">
                         <div className="count">
                         <i onClick={() => dispatch(productMinus(1))} className="fas fs-5 fw-bold fa-minus text-danger me-1"></i>

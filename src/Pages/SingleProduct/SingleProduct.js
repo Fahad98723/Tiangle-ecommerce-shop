@@ -27,9 +27,9 @@ const SingleProduct = () => {
                         <img style={{height:'100%'}} className='img-fluid' src={product.img} alt="" />
                     </Grid>
                     <Grid item sx={{textAlign:'left'}} xs={12} lg={5}>
-                        <Typography className='mb-2' variant='h3'>{product.name}</Typography>
-                        <Typography className='mb-2' variant='h5'>Price : ${product.price}</Typography>
-                        <Typography className='mb-4' variant='h6'>Category : {product.category}</Typography>
+                        <h1 className='mb-4' >{product.name}</h1>
+                        <h4 className='mb-3' >Price : ${product.price}</h4>
+                        <h5 className='mb-4' >Category : {product.category}</h5>
 
                         <div className="d-flex justify-content-between">
                         <div className="count">
@@ -49,9 +49,9 @@ const SingleProduct = () => {
                         
                         </div>
                         <button className="btn btn-danger w-100 mt-5 py-3">Buy It Now</button>
-                        <Typography className='mt-5' variant='body1'>{product.descriptions}</Typography>
+                        <p className='mt-5' >{product.descriptions}</p>
 
-                        <Typography className='mt-5' variant='h6'>Availability: {!product?.stock ? 'In Stock' : 'Not In Stock'}</Typography>
+                        <h5 className='mt-5' variant='h6'>Availability: {!product?.stock ? 'In Stock' : 'Not In Stock'}</h5>
                         <div className='mt-3'>
                             <a target='blank' href='https://github.com/Fahad98723' className="social"><i className=" me-2 fs-1 fab fa-github-square"></i></a>
                             <a target='blank' href='https://www.linkedin.com/in/kazi-fahad-221a91211/' className="social"><i className=" me-2 fs-1 fab fa-linkedin"></i></a>

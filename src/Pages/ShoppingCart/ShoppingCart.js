@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Box, Container, Grid, Typography } from '@mui/material';
 import React, { useEffect } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -24,10 +24,11 @@ const ShoppingCart = () => {
     console.log(cart);
     return (
             <Container sx={{py:5}}>
-           <div className="heading">
+           <div className="heading mb-5">
            <Typography variant = 'h2'>
                 Shopping Cart
             </Typography>
+            </div>
             <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
@@ -63,7 +64,28 @@ const ShoppingCart = () => {
         </TableBody>
       </Table>
     </TableContainer>
-           </div>
+    <button className="btn btn-danger mt-5">Update Cart</button>
+
+      <Grid sx={{mt:5}} container spacing={2}>
+              <Grid  item xs={12} lg={6}>
+                 <Box sx={{border:1,p:3}}>
+                  <h3>Get Shipping Estimate</h3>
+                  <div className='mt-3'>
+                    <input className='p-2 w-50 me-3 ' type="text" />
+                    <input className='p-2 w-25 ' type="number" />
+                  </div>
+                 </Box>
+              </Grid>
+              <Grid  item xs={12} lg={6}>
+                    <Box sx={{border:1, p:3}}>
+                    <h3>Grand Total</h3>
+                    <div>
+                      <h4>Sub Total : </h4>
+                      <button className="btn btn-danger">Checkout</button>
+                    </div>
+                    </Box>
+              </Grid>
+      </Grid>
             </Container>
     );
 };

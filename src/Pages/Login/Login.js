@@ -7,7 +7,7 @@ import useFirebase from '../../Hooks/useFirebase';
 import { setUser } from '../redux/action/productAction';
 
 const Login = () => {
-    const {googleSingIn,logOut, signInWithEmailAndPass, error} = useFirebase()
+    const {googleSingIn,logOut, signInWithEmailAndPass,setError, error, saveUser} = useFirebase()
 
     const [userDetails, setUserDetails] = useState({})
     const handleOnBlur = e => {
@@ -20,11 +20,34 @@ const Login = () => {
     const email = userDetails.email
     const password = userDetails.password
 
-
+    const loginWithGoogle = () => {
+        googleSingIn()
+        .then((result) => {   
+            const user = result.user;
+            saveUser(user.email, user.displayName , 'PUT' )
+            setError('')
+        })
+        .catch((error) => {
+            const errorMessage = error.message;
+            setError(errorMessage);
+        })
+    }
+    const logInWithEmailAndPass = (email, password) => {
+        signInWithEmailAndPass( email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            setError('')
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setError(errorMessage)
+        });
+    }
     
     const formHandle = (e) => {
         e.preventDefault()
-        signInWithEmailAndPass( email, password)
+        logInWithEmailAndPass( email, password)
     }
     return (
         <div>
@@ -45,7 +68,7 @@ const Login = () => {
             </form>
             <h5 className='text-danger my-1'>{error}</h5>
             <h6 className=' mb-4'>Create an account ? <Link to='/register'>Sign Up</Link></h6>
-            <button onClick={googleSingIn}>Google log in </button>
+            <button onClick={loginWithGoogle}>Google log in </button>
             </Container>
             
         </div>
