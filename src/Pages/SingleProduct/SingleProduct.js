@@ -18,8 +18,20 @@ const SingleProduct = () => {
 
    const dispatch = useDispatch()
    const count = useSelector((state) => state.products.count)
+
+   const cart = useSelector(state => state.products.cart)
+   const matched = cart.find(c => c._id === product._id)
    const cartProduct = {...product}
-   cartProduct.quantity = count
+   const handleAddInCart = () => {
+    if(matched){
+            matched.quantity = matched.quantity + count
+            console.log(matched.quantity);
+        }
+    else{           
+        cartProduct.quantity = count
+        dispatch(productsAddToCart(cartProduct)) 
+    }    
+}
     return (
         <Container className='py-5'>
             <Grid container sx={{alignItems:'center'}} spacing={2}>
@@ -42,7 +54,7 @@ const SingleProduct = () => {
                         <i onClick={() => dispatch(productPlus(1))} className="fas fs-5 fw-bold fa-plus text-danger"></i>
                         </div>
                         <div className="cartButton">
-                            <button onClick={() => dispatch(productsAddToCart(cartProduct))} className="btn btn-danger">
+                            <button onClick={handleAddInCart} className="btn btn-danger">
                                 Add To Cart
                             </button>
                         </div>

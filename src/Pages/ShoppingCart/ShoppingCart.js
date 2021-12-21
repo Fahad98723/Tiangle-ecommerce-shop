@@ -48,7 +48,7 @@ const ShoppingCart = () => {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="left">{row.category}</TableCell>
+              <TableCell align="left">$ {row.price}</TableCell>
               <TableCell align="left"><div className="count">
                         <i onClick={() => quantityPlus(row._id)} className="fas fs-5 fw-bold fa-minus text-danger me-1"></i>
 

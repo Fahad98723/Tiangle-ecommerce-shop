@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import useFirebase from '../../../Hooks/useFirebase';
+import ShoppingCartDrawer from '../../ShoppingCartDrawer/ShoppingCartDrawer';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -36,6 +37,8 @@ const NavigationBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const [state, setState] = React.useState(false);
 
   const user = useSelector(state => state.products.user)
   const {logOut} = useFirebase()
@@ -110,7 +113,7 @@ const NavigationBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-          <i className="me-4 fas fa-cart-plus"></i>
+          <i onClick={() => setState(true)} className="me-4 fas fa-cart-plus"></i>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src={user?.photoURL ? user.photoURL : "/static/images/avatar/2.jpg"} />
@@ -155,6 +158,7 @@ const NavigationBar = () => {
             </Menu>
           </Box>
         </Toolbar>
+        <ShoppingCartDrawer setState={setState} state={state}></ShoppingCartDrawer>
       </Container>
     </AppBar>
   );
