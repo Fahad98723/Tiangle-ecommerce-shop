@@ -9,36 +9,51 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import { Box } from '@mui/system';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Grid } from '@mui/material';
+import { deleteFromCart } from '../redux/action/productAction';
+import { Link } from 'react-router-dom';
 const ShoppingCartDrawer = ({setState,state}) => {
-const cart = useSelector(state => state.products.cart)
+    const cart = useSelector(state => state.products.cart)
+    const dispatch = useDispatch()
+
+    cart.forEach(c => {
+        c.totalAmount = c.quantity * c.price
+    });
+    let grandTotalAmount = 0
+    console.log(cart);
+    for(const c of cart){
+    grandTotalAmount = grandTotalAmount + c.totalAmount
+    }
 
     const list =  (
         <Box
-          sx={{ width:300 }}
+          sx={{ width:300 , p:1}}
           role="presentation"
-        
+          style={{
+            fontFamily: 'Poppins, sans-serif', 
+            textDecoration : 'none'
+          }}
         //   onClick={toggleDrawer(anchor, false)}
         //   onKeyDown={toggleDrawer(anchor, false)}
         >
-            <Container>
-            <div className="cart-details mb-3">
+            <Box>
+            <div className="cart-details m-2">
                 <h2>Your Shopping Cart</h2>   
             </div>
-            <div  style={{height:'350px', overflowY:'scroll'}}  className="cart-items px-2">
+            <div  style={{height:'300px', overflowY:'scroll'}}  className="cart-items px-2">
                 {
                     cart.map(c =>
-                        <Grid container sx={{my:2}}>
-                            <Grid item  xs={4}>
-                                <img style={{height : '100px', width:'100%'}}  src={c.img} alt="" />
+                        <Grid container sx={{my:2 , alignItems:'center'}}>
+                            <Grid item  xs={3}>
+                                <img style={{height : '80px', width:'100%' , borderRadius : '50%' }}  src={c.img} alt="" />
                             </Grid>
-                            <Grid item  xs={8}>
-                                <div className="name d-flex justify-content-around">
+                            <Grid item sx={{p:1}}  xs={9}>
+                                <div className="name d-flex justify-content-between align-content-center">
                                     <p>{c.name}</p>
-                                    <i className="fs-3 far fa-times-circle"></i>
+                                    <i onClick={() => dispatch(deleteFromCart(c._id))} className="fs-5 far fa-times-circle"></i>
                                 </div>
-                                <div className="quantity-price d-flex justify-content-around">
+                                <div className="quantity-price d-flex justify-content-between">
                                     <p>{c.name}</p>
                                     <p>${c.price}</p>
                                 </div>
@@ -46,15 +61,15 @@ const cart = useSelector(state => state.products.cart)
                         </Grid>)
                 }
             </div>  
-            <div className="total d-flex justify-content-around">
-                <h2>SubTotal</h2>    
-                <h2>SubTotal</h2>    
+            <div className="total d-flex justify-content-between my-3">
+                <h4>SubTotal : </h4>    
+                <h4>$ {grandTotalAmount ? grandTotalAmount : 0}</h4>    
             </div>   
             <div className="button">
-                <button className="btn btn-danger w-100 py-2 mb-3">View Cart</button>
+                <Link to='/shoppingCart' className="btn btn-danger w-100 py-2 mb-3">View Cart</Link>
                 <button className="btn btn-danger w-100 py-2">Check Out</button>
             </div>
-            </Container>
+            </Box>
         </Box>
       );
     return (

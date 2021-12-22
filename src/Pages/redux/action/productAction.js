@@ -29,3 +29,9 @@ export function setUser (payload){
         payload
     }
 }
+export function deleteFromCart (payload){
+    return {
+        type : 'DELETE_FROM_CART',
+        payload
+    }
+}

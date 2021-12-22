@@ -20,7 +20,7 @@ const Discount = () => {
     }
     return (
         <Container  sx={{py:5}}>
-            <div className="heading mb-5">
+            <div className="heading ">
                 <Typography  variant = 'h2'>
                     Offer
                 </Typography>
@@ -28,7 +28,7 @@ const Discount = () => {
                     20% Discount On Our Full Set Item
                 </Typography>
             </div>
-            <Grid container sx={{textAlign:'left'}} spacing={2}>
+            <Grid container sx={{textAlign:'left', mt:5}} spacing={2}>
                 <Grid style={bannerImage} item xs={12} lg={12}>
                 <div className="details ms-3">
                 <Typography  variant = 'h3'>

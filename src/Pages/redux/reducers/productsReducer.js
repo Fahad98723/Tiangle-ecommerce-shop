@@ -29,6 +29,10 @@ function productReducer(state = initialState, action){
             const newState = {...state, user : action.payload}           
             return newState
         }
+        case 'DELETE_FROM_CART' : {
+            const newState = {...state, cart : [...state.cart.filter(c => c._id !== action.payload)]}           
+            return newState
+        }
         default :
             return state
     }

@@ -8,19 +8,38 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from 'react-redux';
-import { productMinus, productPlus } from '../redux/action/productAction';
+import { productMinus, productPlus, productsAddToCart } from '../redux/action/productAction';
 
 const ShoppingCart = () => {
 
     // const dispatch = useDispatch()
     // const count = useSelector((state) => state.products.count)
+    
+ 
+    const dispatch = useDispatch()
+    const cart = useSelector((state) => state.products.cart)
+
     const quantityPlus = (id) => {
       const recentProducts = cart.find(c => c._id === id)
       recentProducts.quantity = recentProducts.quantity + 1
-      console.log(recentProducts);
     }
-    const cart = useSelector((state) => state.products.cart)
+
+    let grandTotalAmount = 0
+    for(const c of cart){
+      grandTotalAmount = grandTotalAmount + c.totalAmount
+    }
+
+    cart.forEach(c => {
+      c.totalAmount = c.quantity * c.price
+    });
     
+    const handleUpdateCart = () => {
+      // const productsAmount = cart.forEach(c => {
+      //   c.totalAmount = c.quantity * c.price
+      // });
+
+      // return productsAmount
+    }
     console.log(cart);
     return (
             <Container sx={{py:5}}>
@@ -58,13 +77,13 @@ const ShoppingCart = () => {
 
                         <i onClick={''} className="fas fs-5 fw-bold fa-plus text-danger"></i>
                         </div></TableCell>
-              <TableCell align="left">{row?.carbs}</TableCell>
+                <TableCell  align="left">$ {!row.totalAmount ? row.price : row.totalAmount}</TableCell>
             </TableRow>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
-    <button className="btn btn-danger mt-5">Update Cart</button>
+    <button required onClick={handleUpdateCart} className="btn btn-danger mt-5">Update Cart</button>
 
       <Grid sx={{mt:5}} container spacing={2}>
               <Grid  item xs={12} lg={6}>
@@ -80,7 +99,7 @@ const ShoppingCart = () => {
                     <Box sx={{border:1, p:3}}>
                     <h3>Grand Total</h3>
                     <div>
-                      <h4>Sub Total : </h4>
+                      <h4>Sub Total : {grandTotalAmount ? grandTotalAmount : 0} </h4>
                       <button className="btn btn-danger">Checkout</button>
                     </div>
                     </Box>

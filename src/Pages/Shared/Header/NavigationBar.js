@@ -41,6 +41,8 @@ const NavigationBar = () => {
   const [state, setState] = React.useState(false);
 
   const user = useSelector(state => state.products.user)
+  const cart = useSelector(state => state.products.cart)
+
   const {logOut} = useFirebase()
   return (
     <AppBar position="static">
@@ -104,16 +106,15 @@ const NavigationBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Link className='btn btn-dark me-2' to='/home'>Home</Link>
-            <Link className='btn btn-dark me-2' to='/addProduct'>Add Product</Link>
+            {/* <Link className='btn btn-dark me-2' to='/addProduct'>Add Product</Link> */}
             <Link className='btn btn-dark me-2' to='/tShirts'>T-Shirts</Link>
             <Link className='btn btn-dark me-2' to='/shirts'>Shirts</Link>
             <Link className='btn btn-dark me-2' to='/pants'>Pants</Link>
             <Link className='btn btn-dark me-2' to='/jackets'>Jackets</Link>
-            <Link className='btn btn-dark me-2' to='/shoppingCart'>Cart</Link>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
-          <i onClick={() => setState(true)} className="me-4 fas fa-cart-plus"></i>
+          <Box sx={{ flexGrow: 0, alignItems:'center' }}>
+          <i onClick={() => setState(true)} className="me-4 text-black fs-4 fas fa-shopping-bag "> <span className=''>{cart.length ? cart.length : ''}</span> </i> 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src={user?.photoURL ? user.photoURL : "/static/images/avatar/2.jpg"} />
@@ -146,6 +147,10 @@ const NavigationBar = () => {
                   <Typography sx={{display : 'block'}} textAlign="center">{user?.displayName}</Typography>
                 </MenuItem> <MenuItem  onClick={handleCloseNavMenu}>
                 <Link to= ''>Dashboard</Link>
+                </MenuItem>
+
+               <MenuItem  onClick={handleCloseNavMenu}>
+                <Link to= '/shoppingCart'>Cart</Link>
               </MenuItem>
               
               <MenuItem  onClick={handleCloseNavMenu}>
