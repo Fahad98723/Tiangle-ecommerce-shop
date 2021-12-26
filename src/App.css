@@ -8,3 +8,6 @@
 .quickview-modal{
   font-family: 'Poppins', sans-serif;
 }
+i{
+   cursor: pointer;
+}

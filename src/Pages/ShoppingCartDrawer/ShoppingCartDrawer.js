@@ -11,12 +11,13 @@ import MailIcon from '@mui/icons-material/Mail';
 import { Box } from '@mui/system';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container, Grid } from '@mui/material';
-import { deleteFromCart } from '../redux/action/productAction';
+import { deleteFromCart, updateCart } from '../redux/action/productAction';
 import { Link } from 'react-router-dom';
 const ShoppingCartDrawer = ({setState,state}) => {
-    const cart = useSelector(state => state.products.cart)
-    const dispatch = useDispatch()
 
+    const dispatch = useDispatch()
+    const cart = useSelector(state => state.products.cart)
+    const updatingCart = useSelector((state) => state.products.updateCart)
     cart.forEach(c => {
         c.totalAmount = c.quantity * c.price
     });
@@ -26,6 +27,19 @@ const ShoppingCartDrawer = ({setState,state}) => {
     grandTotalAmount = grandTotalAmount + c.totalAmount
     }
 
+    const quantityPlus = (id) => {
+        const recentProducts = cart.find(c => c._id === id)
+        recentProducts.quantity = recentProducts.quantity + 1
+        dispatch(updateCart(cart))
+      }
+      const quantityMinus = (id) => {
+        const recentProducts = cart.find(c => c._id === id)
+        if (recentProducts.quantity > 1) {
+          recentProducts.quantity = recentProducts.quantity - 1
+        }
+        
+        dispatch(updateCart(cart))
+      }
     const list =  (
         <Box
           sx={{ width:300 , p:1}}
@@ -53,8 +67,16 @@ const ShoppingCartDrawer = ({setState,state}) => {
                                     <p>{c.name}</p>
                                     <i onClick={() => dispatch(deleteFromCart(c._id))} className="fs-5 far fa-times-circle"></i>
                                 </div>
-                                <div className="quantity-price d-flex justify-content-between">
-                                    <p>{c.name}</p>
+                                <div className="d-flex justify-content-between align-content-center">
+                                <div className="count">
+                                <i onClick={() => quantityMinus(c._id)} className="fas fs-5 fw-bold fa-minus text-danger"></i>
+
+                                {/* <input style={{width : '40px', fontSize:'20px'}} className= 'mb-3 py-1 rounded border-0 text-center' type="number" min='0' name="" readOnly value= {count} id="" /> */}
+
+                                <span className=' fs-5 mx-2 fw-bold mx-1'>{c.quantity}</span>
+
+                                <i onClick={() => quantityPlus(c._id)} className="fas fs-5 fw-bold fa-plus text-danger"></i>
+                                </div>
                                     <p>${c.price}</p>
                                 </div>
                             </Grid>
@@ -67,7 +89,7 @@ const ShoppingCartDrawer = ({setState,state}) => {
             </div>   
             <div className="button">
                 <Link to='/shoppingCart' className="btn btn-danger w-100 py-2 mb-3">View Cart</Link>
-                <button className="btn btn-danger w-100 py-2">Check Out</button>
+                <button onClick={() => setState(false)} className="btn btn-danger w-100 py-2">Continue Shopping</button>
             </div>
             </Box>
         </Box>

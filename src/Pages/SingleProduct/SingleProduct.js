@@ -12,7 +12,7 @@ const SingleProduct = () => {
         .then(res => res.json())
         .then(data => {
             setProduct(data)
-            dispatch(productCountZero(0))
+            dispatch(productCountZero(1))
         })
     },[id])
 
@@ -30,7 +30,8 @@ const SingleProduct = () => {
     else{           
         cartProduct.quantity = count
         dispatch(productsAddToCart(cartProduct)) 
-    }    
+    }   
+    dispatch(productCountZero(1)) 
 }
     return (
         <Container className='py-5'>

@@ -35,3 +35,9 @@ export function deleteFromCart (payload){
         payload
     }
 }
+export function updateCart (payload){
+    return {
+        type : 'UPDATE_CART',
+        payload
+    }
+}

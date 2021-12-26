@@ -111,6 +111,7 @@ const NavigationBar = () => {
             <Link className='btn btn-dark me-2' to='/shirts'>Shirts</Link>
             <Link className='btn btn-dark me-2' to='/pants'>Pants</Link>
             <Link className='btn btn-dark me-2' to='/jackets'>Jackets</Link>
+            <Link className='btn btn-dark me-2' to='/shoppingCart'>Cart</Link>
           </Box>
 
           <Box sx={{ flexGrow: 0, alignItems:'center' }}>
