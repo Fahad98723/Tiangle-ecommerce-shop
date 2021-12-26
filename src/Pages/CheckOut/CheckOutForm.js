@@ -2,7 +2,7 @@ import { CircularProgress } from '@mui/material';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const CheckOutForm = ({cart}) => {
     const stripe = useStripe()
@@ -10,7 +10,10 @@ const CheckOutForm = ({cart}) => {
     const [clientSecret, setClientSecret] = useState('')
     const [processing, setProcessing] = useState(false)
     const [success, setSuccess] = useState('')
+    const [error, setError] = useState('');
+
     const user = useSelector(state => state.products.user)
+
     const {totalAmount} = cart
     console.log('totalAmount' , totalAmount);
     useEffect(() => {
@@ -41,9 +44,12 @@ const CheckOutForm = ({cart}) => {
         })
         if (error) {
           console.log(error);
+          setError(error.message);
+          setSuccess('')
         }
         else{
           console.log(paymentMethod);
+          setError('');
         }
 
         const {paymentIntent, error : intentError} = await stripe.confirmCardPayment(
@@ -59,10 +65,11 @@ const CheckOutForm = ({cart}) => {
           },
         );
         if (intentError) {
-          
+          setError(intentError.message);
         }
         else{
           console.log(paymentIntent);
+          setError('');
           setProcessing(false)
           setSuccess('You successfully payment')
         }

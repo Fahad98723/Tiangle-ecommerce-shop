@@ -74,12 +74,23 @@ const ShoppingCart = () => {
       }
       e.preventDefault()
     }
+
     let navigate = useNavigate();
     const handleCheckout = () => {
         cart.grandTotalAmount = grandTotalAmount
         cart.shippingCost = shipping
         cart.totalAmount = cart.shippingCost + cart.grandTotalAmount
+
+        const uri = `http://localhost:5000/orders`
+        fetch(uri, {
+          method : 'POST',
+          headers : {
+            'content-type' : 'application/json'
+          },
+          body : JSON.stringify(cart)
+        })
         navigate("/checkOut");
+
     }
     console.log('cart',cart);
     console.log('updatingcart',updatingCart);

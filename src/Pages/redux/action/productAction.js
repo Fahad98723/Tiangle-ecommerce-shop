@@ -41,3 +41,9 @@ export function updateCart (payload){
         payload
     }
 }
+export function cartRemove (payload){
+    return {
+        type : 'CART_REMOVE',
+        payload
+    }
+}

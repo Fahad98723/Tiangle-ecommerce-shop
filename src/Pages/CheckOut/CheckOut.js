@@ -7,7 +7,6 @@ import CheckOutForm from './CheckOutForm';
 
 const CheckOut = () => {
     const stripePromise = loadStripe('pk_test_51JvulXJvV51rbiXLiT7KqyFzzGbKHpTris3hucBrpyZHwAkwc6igpO0DQJV5W0jMhZDZT8D8Ty9Y3QLwpJVgj4GA00sqHaRd0p');
-    const [totalAmount , setTotalAmount] = useState(0)
 
     const cart = useSelector((state) => state.products.cart)
     console.log(cart);

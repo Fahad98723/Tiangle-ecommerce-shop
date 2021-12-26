@@ -73,7 +73,7 @@ const ShoppingCartDrawer = ({setState,state}) => {
 
                                 {/* <input style={{width : '40px', fontSize:'20px'}} className= 'mb-3 py-1 rounded border-0 text-center' type="number" min='0' name="" readOnly value= {count} id="" /> */}
 
-                                <span className=' fs-5 mx-2 fw-bold mx-1'>{c.quantity}</span>
+                                <span className=' fs-5 mx-2 fw-bold mx-1'>{c?.quantity}</span>
 
                                 <i onClick={() => quantityPlus(c._id)} className="fas fs-5 fw-bold fa-plus text-danger"></i>
                                 </div>
