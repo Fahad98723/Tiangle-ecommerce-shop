@@ -2,14 +2,16 @@ import { Container } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
 import { setUser } from '../redux/action/productAction';
 import NavigationBar from '../Shared/Header/NavigationBar';
 
 const Login = () => {
-    const {googleSingIn,logOut, signInWithEmailAndPass,setError, error, saveUser} = useFirebase()
-
+    const {googleSingIn,logOut, signInWithEmailAndPass,setError, error, saveUser,setIsLoading} = useFirebase()
+    const location = useLocation()
+    const pathName = location.state?.from?.pathname
+    let navigate = useNavigate()
     const [userDetails, setUserDetails] = useState({})
     const handleOnBlur = e => {
         const field = e.target.name
@@ -27,11 +29,18 @@ const Login = () => {
             const user = result.user;
             saveUser(user.email, user.displayName , 'PUT' )
             setError('')
+            if (pathName) {
+                navigate(pathName)
+            }
+            else{
+                navigate('/')
+            }
         })
         .catch((error) => {
             const errorMessage = error.message;
             setError(errorMessage);
         })
+        .finally(() => setIsLoading(false));
     }
     const logInWithEmailAndPass = (email, password) => {
         signInWithEmailAndPass( email, password)
@@ -43,7 +52,8 @@ const Login = () => {
             const errorCode = error.code;
             const errorMessage = error.message;
             setError(errorMessage)
-        });
+        })
+        .finally(() => setIsLoading(false));
     }
     
     const formHandle = (e) => {

@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar, Button, Card, CardActions, CardContent, CardHeader, CardMedia, CircularProgress, Container, Grid, IconButton, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 import { productCountZero, productsAddToCart } from '../../../redux/action/productAction';
 const Pants = () => {
-    const {products} = useProducts()
+    const {products, isLoading} = useProducts()
     const [productId, setProductId] = useState('')
     const Pants = products.filter(p => p.category === 'Pant')
     const [open, setOpen] = React.useState(false);
@@ -37,6 +37,11 @@ const Pants = () => {
       let navigate = useNavigate();
       function handleClick(id) {
         navigate(`/product/${id}`);
+    }
+      if (isLoading) {
+        <Stack sx={{py:5}} alignItems="center">
+        <CircularProgress />
+        </Stack>
     }
     return (
         <Container>

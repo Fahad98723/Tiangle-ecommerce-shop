@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent,  CardMedia, Container, Grid,  Typography } from '@mui/material';
+import { Card, CardActions, CardContent,  CardMedia, CircularProgress, Container, Grid,  Stack,  Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 import { productCountZero, productsAddToCart } from '../../../redux/action/productAction';
 
 const Shirts = () => {
-    const {products} = useProducts()
+    const {products, isLoading} = useProducts()
     const [productId, setProductId] = useState('')
     const Shirts = products.filter(p => p.category === 'Shirt')
     const [open, setOpen] = React.useState(false);
@@ -39,6 +39,11 @@ const Shirts = () => {
       function handleClick(id) {
         navigate(`/product/${id}`);
       }
+      if (isLoading) {
+        <Stack sx={{py:5}} alignItems="center">
+        <CircularProgress />
+        </Stack>
+    }
     return (
         <Container>
              <Grid container spacing={2}>

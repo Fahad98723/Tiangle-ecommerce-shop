@@ -19,6 +19,7 @@ import SingleProduct from './Pages/SingleProduct/SingleProduct';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import CheckOut from './Pages/CheckOut/CheckOut';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 function App() {
   return (
     <div className="body">
@@ -27,15 +28,25 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />
         <Route path="/addProduct" element={<AddProducts/>} />
-        <Route path="/tShirts" element={<AllTShirts/>} />
-        <Route path="/shirts" element={<AllShirts/>} />
-        <Route path="/pants" element={<AllPants/>} />
-        <Route path="/jackets" element={<AllJackets/>} />
-        <Route path="/shoppingCart" element={<ShoppingCart/>} />
+        <Route path="/tShirts" element={
+          <PrivateRoute> <AllTShirts/>
+          </PrivateRoute>
+        } />
+        <Route path="/shirts" element={<PrivateRoute> <AllShirts/>
+          </PrivateRoute>} />
+        <Route path="/pants" element={<PrivateRoute> <AllPants/>
+          </PrivateRoute>} />
+        <Route path="/jackets" element={<PrivateRoute> <AllJackets/>
+          </PrivateRoute>} />
+        <Route path="/shoppingCart" element={
+          <PrivateRoute><ShoppingCart/></PrivateRoute>
+        } />
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
-        <Route path="/product/:id" element={<SingleProduct/>} />
-        <Route path="/checkOut" element={<CheckOut/>} />
+        <Route path="/product/:id" element={<PrivateRoute> <SingleProduct/>
+          </PrivateRoute>} />
+        <Route path="/checkOut" element={<PrivateRoute> <CheckOut/>
+          </PrivateRoute>} />
       </Routes>
         
       <Footer></Footer>

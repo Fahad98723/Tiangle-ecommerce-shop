@@ -1,4 +1,4 @@
-import { Avatar,  Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar,  Card, CardActions, CardContent, CardHeader, CardMedia, CircularProgress, Container, Grid, IconButton, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 import { productCountZero, productsAddToCart } from '../../../redux/action/productAction';
 const Jacket = () => {
-    const {products} = useProducts()
+    const {products, isLoading} = useProducts()
     const [productId, setProductId] = useState('')
     const Jackets = products.filter(p => p.category === 'Jacket')
     const [open, setOpen] = React.useState(false);
@@ -38,36 +38,45 @@ const Jacket = () => {
       function handleClick(id) {
         navigate(`/product/${id}`);
       }
+      if (isLoading) {
+        
+      }
     return (
         <Container>
-             <Grid container spacing={2}>
-                {
-                    Jackets.slice(0,6).map(jacket => <Grid item lg={4}>
-                        <Card  sx={{ maxWidth: '100%' }}>
-                        
-                        <CardMedia onClick={() => handleClick(jacket._id)}
-                          component="img"
-                          height="300"
-                          // image={`data:image/png;base64 ,${tShirt.img}`}
-                          image = {jacket.img}
-                          alt="T-shirt"
-                        />
-                        <CardContent>
-                          <Typography sx={{textAlign:'left'}} variant="h5" color="text.secondary">
-                          {jacket.name}
-                          </Typography>
-                        </CardContent> 
-                        <CardActions>
-                        <button onClick={() => handleCartOpen(jacket._id)} className='btn btn-danger' >Add To Cart <i className="ms-2 fas fa-cart-plus"></i></button>
-                        
-                        <button  onClick={() => handleOpen(setProductId(jacket._id))} className="btn btn-success">Quick View <i className=" ms-2 fas fa-search-plus"></i> </button>
-                        {/* <Link style={{textDecoration:'none', color:'white'}} to={`/`}  className="btn btn-success buy-btn">Buy Now <i className="ms-2 fas fa-arrow-circle-right"></i></Link> */}
-                        </CardActions>                           
-                      </Card>
-                    </Grid>)
-                }
-                
-            </Grid>
+          {
+            Object.keys(Jackets).length === 0 ? <Stack sx={{py:5}} alignItems="center">
+            <CircularProgress />
+            </Stack> :
+            <Grid container spacing={2}>
+            {
+                Jackets.slice(0,6).map(jacket => <Grid item lg={4}>
+                    <Card  sx={{ maxWidth: '100%' }}>
+                    
+                    <CardMedia onClick={() => handleClick(jacket._id)}
+                      component="img"
+                      height="300"
+                      // image={`data:image/png;base64 ,${tShirt.img}`}
+                      image = {jacket.img}
+                      alt="T-shirt"
+                    />
+                    <CardContent>
+                      <Typography sx={{textAlign:'left'}} variant="h5" color="text.secondary">
+                      {jacket.name}
+                      </Typography>
+                    </CardContent> 
+                    <CardActions>
+                    <button onClick={() => handleCartOpen(jacket._id)} className='btn btn-danger' >Add To Cart <i className="ms-2 fas fa-cart-plus"></i></button>
+                    
+                    <button  onClick={() => handleOpen(setProductId(jacket._id))} className="btn btn-success">Quick View <i className=" ms-2 fas fa-search-plus"></i> </button>
+                    {/* <Link style={{textDecoration:'none', color:'white'}} to={`/`}  className="btn btn-success buy-btn">Buy Now <i className="ms-2 fas fa-arrow-circle-right"></i></Link> */}
+                    </CardActions>                           
+                  </Card>
+                </Grid>)
+            }
+            
+        </Grid>
+          }
+             
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>

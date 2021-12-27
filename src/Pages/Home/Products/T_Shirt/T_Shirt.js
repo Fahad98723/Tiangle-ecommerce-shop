@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent,  CardMedia, Container, Grid,  Typography } from '@mui/material';
+import { Card, CardActions, CardContent,  CardMedia, CircularProgress, Container, Grid,  Stack,  Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,7 @@ import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 import { productCountZero, productsAddToCart } from '../../../redux/action/productAction';
 
 const T_Shirt = () => {
-    const {products} = useProducts()
+    const {products, isLoading} = useProducts()
     const [productId, setProductId] = useState('')
     const TShirts = products.filter(p => p.category === 'T-Shirt')
     const [open, setOpen] = React.useState(false);
@@ -38,6 +38,11 @@ const T_Shirt = () => {
       let navigate = useNavigate();
       function handleClick(id) {
         navigate(`/product/${id}`);
+      }
+      if (isLoading) {
+       return  <Stack sx={{py:5}} alignItems="center">
+        <CircularProgress />
+        </Stack>
       }
     return (
         <Container>

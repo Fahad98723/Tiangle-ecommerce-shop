@@ -8,6 +8,7 @@ firebaseInitializing()
 const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
+    const [isLoading, setIsLoading] = useState(true)
     const dispatch = useDispatch()
     const user = useSelector(state => state.products.user)
     console.log(user);
@@ -35,18 +36,21 @@ const useFirebase = () => {
             const errorCode = error.code;
             const errorMessage = error.message;
             setError(errorMessage)
-        });
+        })
+        .finally(() => setIsLoading(false));
     }
+
     const signInWithEmailAndPass = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)       
         }
+
     const logOut = () => {
         signOut(auth).then(() => {
             dispatch(setUser({}))
             setError('')
           }).catch((error) => {
             setError(error.errorMessage)
-          });
+          }).finally(() => setIsLoading(false));
     }
 
     useEffect(() => {
@@ -56,6 +60,7 @@ const useFirebase = () => {
             } else {
               
             }
+            setIsLoading(false);
           });
     },[auth, dispatch])
 
@@ -74,7 +79,7 @@ const useFirebase = () => {
     //     fetch('http://localhost:5000/users',{})
     // },[])
 
-    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error, setError, saveUser}
+    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error, setError, saveUser, setIsLoading, isLoading}
 }
 
 export default useFirebase
