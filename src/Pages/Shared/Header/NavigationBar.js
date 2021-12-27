@@ -115,7 +115,7 @@ const NavigationBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0, alignItems:'center' }}>
-          <i onClick={() => setState(true)} className="me-4 text-black fs-4 fas fa-shopping-bag "> <span className=''>{cart.length ? cart.length : ''}</span> </i> 
+          <i onClick={() => setState(true)} className="me-4 text-black fs-4 fas fa-shopping-bag "> <span className=''>{cart?.length ? cart?.length : ''}</span> </i> 
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src={user?.photoURL ? user.photoURL : "/static/images/avatar/2.jpg"} />

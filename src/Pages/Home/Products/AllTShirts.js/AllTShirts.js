@@ -6,6 +6,7 @@ import useProducts from '../../../../Hooks/useProducts';
 import AddToCartModal from '../../../Modal/AddToCartModal/AddToCartModal';
 import QuickViewModal from '../../../Modal/QuickViewModal/QuickViewModal';
 import { productCountZero, productsAddToCart } from '../../../redux/action/productAction';
+import NavigationBar from '../../../Shared/Header/NavigationBar';
 
 const AllTShirts = () => {
     const {products} = useProducts()
@@ -18,7 +19,7 @@ const AllTShirts = () => {
 
     const handleCartOpen = (id) => {
       const recentProduct = products.find(p => p._id === id)
-      const matched = cart.find(c => c._id === recentProduct._id )
+      const matched = cart?.find(c => c._id === recentProduct._id )
       if(matched){
         recentProduct.quantity = recentProduct.quantity + 1
         console.log(matched.quantity);
@@ -40,6 +41,8 @@ const AllTShirts = () => {
         navigate(`/product/${id}`);
       }
     return (
+      <>
+      <NavigationBar></NavigationBar>
         <Container className='py-5'>
              <Grid container spacing={2}>
                 {
@@ -72,7 +75,7 @@ const AllTShirts = () => {
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>
-        </Container>
+        </Container></>
     );
 };
 

@@ -18,22 +18,23 @@ const ShoppingCartDrawer = ({setState,state}) => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.products.cart)
     const updatingCart = useSelector((state) => state.products.updateCart)
-    cart.forEach(c => {
+    
+    cart?.forEach(c => {
         c.totalAmount = c.quantity * c.price
     });
     let grandTotalAmount = 0
     console.log(cart);
     for(const c of cart){
-    grandTotalAmount = grandTotalAmount + c.totalAmount
+        grandTotalAmount = grandTotalAmount + c.totalAmount
     }
 
     const quantityPlus = (id) => {
-        const recentProducts = cart.find(c => c._id === id)
+        const recentProducts = cart?.find(c => c._id === id)
         recentProducts.quantity = recentProducts.quantity + 1
         dispatch(updateCart(cart))
       }
       const quantityMinus = (id) => {
-        const recentProducts = cart.find(c => c._id === id)
+        const recentProducts = cart?.find(c => c._id === id)
         if (recentProducts.quantity > 1) {
           recentProducts.quantity = recentProducts.quantity - 1
         }
@@ -57,7 +58,7 @@ const ShoppingCartDrawer = ({setState,state}) => {
             </div>
             <div  style={{height:'300px', overflowY:'scroll'}}  className="cart-items px-2">
                 {
-                    cart.map(c =>
+                    cart?.map(c =>
                         <Grid container sx={{my:2 , alignItems:'center'}}>
                             <Grid item  xs={3}>
                                 <img style={{height : '80px', width:'100%' , borderRadius : '50%' }}  src={c.img} alt="" />

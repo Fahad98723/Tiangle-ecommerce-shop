@@ -17,7 +17,7 @@ const Pants = () => {
 
     const handleCartOpen = (id) => {
       const recentProduct = products.find(p => p._id === id)
-      const matched = cart.find(c => c._id === recentProduct._id )
+      const matched = cart?.find(c => c._id === recentProduct._id )
       if(matched){
         recentProduct.quantity = recentProduct.quantity + 1
         console.log(matched.quantity);

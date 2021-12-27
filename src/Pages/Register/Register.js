@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
 import { setUser } from '../redux/action/productAction';
+import NavigationBar from '../Shared/Header/NavigationBar';
 
 const Register = () => {
     const {googleSingIn,logOut, signUpWithEmailAndPass, error} = useFirebase()
@@ -27,7 +28,7 @@ const Register = () => {
     }
     return (
         <div>
-
+            <NavigationBar></NavigationBar>
             <Container className= 'text-center py-5'>
                 <div className="heading mb-5">
                     <h3>If You Are New User Here Then Please</h3>

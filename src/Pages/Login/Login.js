@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
 import { setUser } from '../redux/action/productAction';
+import NavigationBar from '../Shared/Header/NavigationBar';
 
 const Login = () => {
     const {googleSingIn,logOut, signInWithEmailAndPass,setError, error, saveUser} = useFirebase()
@@ -51,7 +52,7 @@ const Login = () => {
     }
     return (
         <div>
-
+            <NavigationBar></NavigationBar>
             <Container className= 'text-center py-5'>
                 <div className="heading mb-5">
                     <h3>If You Allready Have An Account Please</h3>

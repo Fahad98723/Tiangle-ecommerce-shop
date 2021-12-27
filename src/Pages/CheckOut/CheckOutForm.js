@@ -3,13 +3,15 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { cartRemove } from '../redux/action/productAction';
 
 const CheckOutForm = ({cart}) => {
     const stripe = useStripe()
     const elements = useElements()
     const [clientSecret, setClientSecret] = useState('')
     const [processing, setProcessing] = useState(false)
-    const [success, setSuccess] = useState('')
+    const [success, setSuccess] = useState(false)
     const [error, setError] = useState('');
 
     const user = useSelector(state => state.products.user)
@@ -45,7 +47,7 @@ const CheckOutForm = ({cart}) => {
         if (error) {
           console.log(error);
           setError(error.message);
-          setSuccess('')
+          setSuccess(true)
         }
         else{
           console.log(paymentMethod);
@@ -71,18 +73,34 @@ const CheckOutForm = ({cart}) => {
           console.log(paymentIntent);
           setError('');
           setProcessing(false)
-          setSuccess('You successfully payment')
+          setSuccess(true)
+          const payment = {
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+            last4: paymentMethod.card.last4,
+            transaction: paymentIntent.client_secret.slice('_secret')[0]
         }
+        }
+    }
+
+    let navigate = useNavigate()
+    const dispatch = useDispatch()
+    const handleHome = () => {
+        navigate('/home')
+        dispatch(cartRemove([]))
+    }
+    const handleContinue = () => {
+        navigate('/home')
     }
     return (
         <div>
             <form onSubmit={handleSubmit}>
-      <CardElement
+      <CardElement className='mb-3'
         options={{
           style: {
             base: {
-              fontSize: '16px',
-              color: '#424770',
+              fontSize: '18px',
+              color: 'white',
               '::placeholder': {
                 color: '#aab7c4',
               },
@@ -96,6 +114,9 @@ const CheckOutForm = ({cart}) => {
      { processing ?  <CircularProgress> </CircularProgress>:<button type="submit" disabled={!stripe || success}>
         Pay
       </button>}
+      {
+        success ? <button onClick={() => handleHome()} className='btn btn-warning ms-4'>Home</button> : <button onClick={() => handleContinue()} className='btn btn-success ms-4'>Continue Shopping</button>
+      }
     </form>
         </div>
     );

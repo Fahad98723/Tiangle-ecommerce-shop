@@ -32,7 +32,7 @@ function productReducer(state = initialState, action){
             return newState
         }
         case 'DELETE_FROM_CART' : {
-            const newState = {...state, cart : [...state.cart.filter(c => c._id !== action.payload)]}           
+            const newState = {...state, cart : [...state.cart?.filter(c => c._id !== action.payload)]}           
             return newState
         }
         case 'UPDATE_CART' : {

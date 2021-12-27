@@ -13,7 +13,6 @@ import AllTShirts from './Pages/Home/Products/AllTShirts.js/AllTShirts';
 import AllShirts from './Pages/Home/Products/AllShirts/AllShirts';
 import AllPants from './Pages/Home/Products/AllPants/AllPants';
 import AllJackets from './Pages/Home/Products/AllJackets/AllJackets';
-import NavigationBar from './Pages/Shared/Header/NavigationBar';
 import Footer from './Pages/Shared/Footer/Footer';
 import ShoppingCart from './Pages/ShoppingCart/ShoppingCart';
 import SingleProduct from './Pages/SingleProduct/SingleProduct';
@@ -24,7 +23,6 @@ function App() {
   return (
     <div className="body">
       <BrowserRouter>
-      <NavigationBar></NavigationBar>
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/home" element={<Home/>} />

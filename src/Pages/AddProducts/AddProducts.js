@@ -1,5 +1,6 @@
 import { Button, Input, TextField } from '@mui/material';
 import React, { useState } from 'react';
+import NavigationBar from '../Shared/Header/NavigationBar';
 const AddProducts = () => {
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
@@ -38,6 +39,7 @@ const AddProducts = () => {
     };
     return (
         <div>
+            <NavigationBar></NavigationBar>
              <form onSubmit={handleSubmit}>
                 <TextField placeholder='Products Name' required onChange={e => setName(e.target.value)}  style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
                 <br />

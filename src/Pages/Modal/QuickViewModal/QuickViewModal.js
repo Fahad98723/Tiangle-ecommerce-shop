@@ -36,7 +36,7 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
    const count = useSelector((state) => state.products.count)
 
    const cart = useSelector(state => state.products.cart)
-   const matched = cart.find(c => c._id === product._id)
+   const matched = cart?.find(c => c._id === product._id)
    const cartProduct = {...product}
    
    const handleAddInCart = () => {

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { productCountZero, productMinus, productPlus, productsAddToCart } from '../redux/action/productAction';
-
+import NavigationBar from '../Shared/Header/NavigationBar';
 const SingleProduct = () => {
     const {id} = useParams()
     const [product,setProduct] = useState({})
@@ -20,7 +20,7 @@ const SingleProduct = () => {
    const count = useSelector((state) => state.products.count)
 
    const cart = useSelector(state => state.products.cart)
-   const matched = cart.find(c => c._id === product._id)
+   const matched = cart?.find(c => c._id === product._id)
    const cartProduct = {...product}
    const handleAddInCart = () => {
     if(matched){
@@ -34,6 +34,8 @@ const SingleProduct = () => {
     dispatch(productCountZero(1)) 
 }
     return (
+        <>
+        <NavigationBar></NavigationBar>
         <Container className='py-5'>
             <Grid container sx={{alignItems:'center'}} spacing={2}>
                     <Grid item xs={12} lg={7}>
@@ -73,7 +75,7 @@ const SingleProduct = () => {
                             </div> 
                     </Grid>
                 </Grid>
-        </Container>
+        </Container></>
     );
 };
 
