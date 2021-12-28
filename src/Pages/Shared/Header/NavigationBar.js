@@ -153,6 +153,10 @@ const NavigationBar = () => {
                <MenuItem  onClick={handleCloseNavMenu}>
                 <Link to= '/shoppingCart'>Cart</Link>
               </MenuItem>
+
+               <MenuItem  onClick={handleCloseNavMenu}>
+                <Link to= '/myOrders'>MyOrders</Link>
+              </MenuItem>
               
               <MenuItem  onClick={handleCloseNavMenu}>
               <i onClick={logOut} className="fas fa-sign-out-alt"></i>

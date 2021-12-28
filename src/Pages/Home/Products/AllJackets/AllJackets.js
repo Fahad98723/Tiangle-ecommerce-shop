@@ -1,4 +1,4 @@
-import { Avatar,  Card, CardActions, CardContent, CardHeader, CardMedia, Container, Grid, IconButton, Typography } from '@mui/material';
+import { Avatar,  Card, CardActions, CardContent, CardHeader, CardMedia, CircularProgress, Container, Grid, IconButton, Stack, Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -43,7 +43,10 @@ const AllJacket = () => {
     return (
       <><NavigationBar></NavigationBar>
       <Container className='py-5'>
-           <Grid container spacing={2}>
+        {
+          Object.keys(Jackets).length === 0 ? <Stack sx={{py:5}} alignItems="center">
+          <CircularProgress />
+          </Stack> : <Grid container spacing={2}>
               {
                   Jackets.map(jacket => <Grid item lg={4}>
                       <Card  sx={{ maxWidth: '100%' }}>
@@ -71,6 +74,8 @@ const AllJacket = () => {
               }
               
           </Grid>
+        }
+           
           <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
           <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
           </AddToCartModal>

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { cartRemove } from '../redux/action/productAction';
 
-const CheckOutForm = ({cart}) => {
+const CheckOutForm = ({cart, singlePayment}) => {
     const stripe = useStripe()
     const elements = useElements()
     const [clientSecret, setClientSecret] = useState('')
@@ -17,6 +17,7 @@ const CheckOutForm = ({cart}) => {
     const user = useSelector(state => state.products.user)
 
     const {totalAmount} = cart
+    const {_id} = singlePayment
     console.log('totalAmount' , totalAmount);
     useEffect(() => {
       fetch('http://localhost:5000/create-payment-intent', {
@@ -80,6 +81,28 @@ const CheckOutForm = ({cart}) => {
             last4: paymentMethod.card.last4,
             transaction: paymentIntent.client_secret.slice('_secret')[0]
         }
+        const data = {cart, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending', payment}
+
+        const uri = `http://localhost:5000/orders`
+        fetch(uri, {
+          method : 'POST',
+          headers : {
+            'content-type' : 'application/json'
+          },
+          body : JSON.stringify(data)
+        })
+
+        const url = `http://localhost:5000/orders/${_id}`;
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(payment)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data));
+
         }
     }
 
@@ -89,8 +112,20 @@ const CheckOutForm = ({cart}) => {
         navigate('/home')
         dispatch(cartRemove([]))
     }
-    const handleContinue = () => {
+
+    const handlePayLater = () => {
+      console.log(cart);
+      const data = {cart, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending'}
+        const uri = `http://localhost:5000/orders`
+        fetch(uri, {
+          method : 'POST',
+          headers : {
+            'content-type' : 'application/json'
+          },
+          body : JSON.stringify(data)
+        })
         navigate('/home')
+        dispatch(cartRemove([]))
     }
     return (
         <div>
@@ -115,7 +150,7 @@ const CheckOutForm = ({cart}) => {
         Pay
       </button>}
       {
-        success ? <button onClick={() => handleHome()} className='btn btn-warning ms-4'>Home</button> : <button onClick={() => handleContinue()} className='btn btn-success ms-4'>Continue Shopping</button>
+        success ? <button onClick={() => handleHome()} className='btn btn-warning ms-4'>Home</button> : <button onClick={() => handlePayLater()} className='btn btn-success ms-4'>Pay Later</button>
       }
     </form>
         </div>

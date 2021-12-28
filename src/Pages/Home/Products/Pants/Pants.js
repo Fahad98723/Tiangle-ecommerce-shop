@@ -45,7 +45,10 @@ const Pants = () => {
     }
     return (
         <Container>
-             <Grid container spacing={2}>
+          {
+            Object.keys(Pants).length === 0 ? <Stack sx={{py:5}} alignItems="center">
+            <CircularProgress />
+            </Stack> :<Grid container spacing={2}>
                 {
                     Pants.slice(0,6).map(pant => <Grid item lg={4}>
                         <Card sx={{ maxWidth: '100%' }}>                       
@@ -72,6 +75,8 @@ const Pants = () => {
                 }
                 
             </Grid>
+          }
+             
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>

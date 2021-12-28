@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent,  CardMedia, Container, Grid,  Typography } from '@mui/material';
+import { Card, CardActions, CardContent,  CardMedia, CircularProgress, Container, Grid,  Stack,  Typography } from '@mui/material';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +44,10 @@ const AllShirts = () => {
         <>
         <NavigationBar></NavigationBar>
         <Container className='py-5'>
-             <Grid container spacing={2}>
+          {
+            Object.keys(Shirts).length === 0 ? <Stack sx={{py:5}} alignItems="center">
+            <CircularProgress />
+            </Stack> :              <Grid container spacing={2}>
                 {
                     Shirts.map(shirt => <Grid item lg={4}>
                         <Card  sx={{ maxWidth: '100%' }}>
@@ -72,6 +75,8 @@ const AllShirts = () => {
                 }
                 
             </Grid>
+          }
+
             <QuickViewModal productId={productId} handleOpen={handleOpen} handleClose={handleClose} open={open}></QuickViewModal>
             <AddToCartModal productId={productId} handleCartOpen={handleCartOpen} handleCartClose={handleCartClose} cartOpen={cartOpen}>
             </AddToCartModal>

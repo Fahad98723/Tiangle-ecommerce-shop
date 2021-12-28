@@ -22,6 +22,7 @@ const ShoppingCart = () => {
 
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.products.cart)
+    const user = useSelector((state) => state.products.user)
     const updatingCart = useSelector((state) => state.products.updateCart)
     console.log(cart);
 
@@ -84,20 +85,10 @@ const ShoppingCart = () => {
         cart.shippingCost = shipping
         cart.totalAmount = cart.shippingCost + cart.grandTotalAmount
         cart.city = city
-
-        const uri = `http://localhost:5000/orders`
-        fetch(uri, {
-          method : 'POST',
-          headers : {
-            'content-type' : 'application/json'
-          },
-          body : JSON.stringify(cart)
-        })
+        
         navigate("/checkOut");
 
     }
-    console.log('cart',cart);
-    console.log('updatingcart',updatingCart);
     
     return (
       <><NavigationBar></NavigationBar>

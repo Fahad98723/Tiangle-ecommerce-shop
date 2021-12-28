@@ -20,6 +20,7 @@ import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import MyOrders from './Pages/MyOrders/MyOrders';
 function App() {
   return (
     <div className="body">
@@ -47,7 +48,11 @@ function App() {
           </PrivateRoute>} />
         <Route path="/checkOut" element={<PrivateRoute> <CheckOut/>
           </PrivateRoute>} />
-      </Routes>
+        <Route path="/checkOut/:id" element={<PrivateRoute> <CheckOut/>
+          </PrivateRoute>} />
+        <Route path="/myOrders" element={<PrivateRoute> <MyOrders/>
+          </PrivateRoute>} />
+        </Routes>
         
       <Footer></Footer>
     </BrowserRouter>
