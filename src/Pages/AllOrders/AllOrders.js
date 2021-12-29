@@ -54,7 +54,7 @@ const AllOrders = () => {
         <Container >
             <div className="py-5">
             {
-                allOrder.map(my => 
+                allOrder?.map(my => 
                     <div className='mb-5'>
                         <h5>Order By <span className='text-warning'>{my.name}</span></h5>
                         <h5>Contact Email <span className='text-warning'>{my.email}</span></h5>
@@ -68,7 +68,7 @@ const AllOrders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {my.cart.map(m => 
+                        {my?.cart?.map(m => 
                         <tr>
                         <td>{m.name}</td>
                         <td>{m.quantity}</td>
@@ -86,7 +86,7 @@ const AllOrders = () => {
                     </Table>
                     <div>
                     {
-                        my.transaction && my.last4 ? <button className=" btn btn-warning">Paid</button> : <button className="btn btn-warning">Not Payed</button>
+                        my?.transaction && my?.last4 ? <button className=" btn btn-warning">Paid</button> : <button className="btn btn-warning">Not Payed</button>
                     }
                     <button onClick={() => handleDelete(my._id)} className="mx-3  btn btn-warning">Delete From All  Order</button>
                     {/* {

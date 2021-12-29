@@ -48,6 +48,7 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
             cartProduct.quantity = count
             dispatch(productsAddToCart(cartProduct)) 
         }    
+        handleClose()
     }
    
     return (      

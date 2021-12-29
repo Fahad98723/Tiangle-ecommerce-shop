@@ -11,7 +11,7 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true)
     const dispatch = useDispatch()
     const user = useSelector(state => state.products.user)
-    console.log(user);
+    const  [isAdmin, setIsAdmin] = useState(false)
     const [error, setError] = useState('')
     const googleSingIn = () => {     
         return signInWithPopup(auth, googleProvider)      
@@ -75,11 +75,14 @@ const useFirebase = () => {
         })
     }
 
-    // useEffect(() => {
-    //     fetch('http://localhost:5000/users',{})
-    // },[])
+    useEffect( () => {
+        fetch(`http://localhost:5000/users/${user.email}`)
+        .then(res => res.json())
+        .then(data =>  setIsAdmin(data.admin))
+    },[user.email])
+    console.log('user email',user.email, isAdmin);
 
-    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error, setError, saveUser, setIsLoading, isLoading}
+    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error,isAdmin, setError, saveUser, setIsLoading, isLoading}
 }
 
 export default useFirebase

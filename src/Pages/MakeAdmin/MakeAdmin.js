@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Alert, Col, Container, Row } from 'react-bootstrap';
+import NavigationBar from '../Shared/Header/NavigationBar';
 
 const MakeAdmin = () => {
     const [email , setEmail] = useState('')
@@ -10,7 +11,7 @@ const MakeAdmin = () => {
     //making user a admin
     const handleSubmit = e => {
         const user = {email}
-        fetch('https://shielded-inlet-60219.herokuapp.com/users/admin', {
+        fetch('http://localhost:5000/users/admin', {
             method : 'PUT',
             headers : {
                 'content-type' : 'application/json'
@@ -28,7 +29,8 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <Container>
+            <NavigationBar></NavigationBar>
+            <Container className='py-5'>
             <Row>               
                 <Col lg='6' sm='12'>
                     <div className="heading mb-5">

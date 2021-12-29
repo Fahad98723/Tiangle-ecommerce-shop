@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import useFirebase from '../../../Hooks/useFirebase';
 import ShoppingCartDrawer from '../../ShoppingCartDrawer/ShoppingCartDrawer';
+import './Navigation.css'
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -42,7 +43,8 @@ const NavigationBar = () => {
 
   const user = useSelector(state => state.products.user)
   const cart = useSelector(state => state.products.cart)
-
+  const {isAdmin} = useFirebase()
+  console.log(isAdmin);
   const {logOut} = useFirebase()
   return (
     <AppBar position="static">
@@ -86,7 +88,7 @@ const NavigationBar = () => {
                 display: { xs: 'block', md: 'none', width:'50%' },
               }}            
             >
-              <Link className='btn btn-dark m-3 w-75 mr-0' to='/home'>Home</Link>
+            <Link className='btn btn-dark m-3 w-75 mr-0' to='/home'>Home</Link>
             <Link className='btn btn-dark m-3 w-75' to='/addProduct'>Add Product</Link>
             <Link className='btn btn-dark m-3 w-75' to='/tShirts'>T-Shirts</Link>
             <Link className='btn btn-dark m-3 w-75' to='/shirts'>Shirts</Link>
@@ -136,36 +138,40 @@ const NavigationBar = () => {
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
+              className='navigation'
             >
                 
-                <MenuItem  onClick={handleCloseNavMenu}>
-                  {
-                    !user?.email ?<Link to='/login'>Log in</Link> : ''  
-                  }
-                </MenuItem>
                 {
                   user?.email ? <><MenuItem  onClick={handleCloseNavMenu}>
                   <Typography sx={{display : 'block'}} textAlign="center">{user?.displayName}</Typography>
                 </MenuItem>
 
-               <MenuItem  onClick={handleCloseNavMenu}>
-                <Link to= '/shoppingCart'>Cart</Link>
+               <MenuItem as={Link} to= '/shoppingCart' onClick={handleCloseNavMenu}>
+                <Typography >Cart</Typography>
               </MenuItem>
 
-               <MenuItem  onClick={handleCloseNavMenu}>
-                <Link to= '/myOrders'>MyOrders</Link>
+               <MenuItem as={Link} to= '/myOrders' onClick={handleCloseNavMenu}>
+                <Typography >MyOrders</Typography>
               </MenuItem>
-               <MenuItem  onClick={handleCloseNavMenu}>
-                <Link to= '/allOrders'>All Orders</Link>
+               <MenuItem as={Link} to= '/allOrders' onClick={handleCloseNavMenu}>
+                <Typography >All Orders</Typography>
               </MenuItem>
-              
-              <MenuItem  onClick={handleCloseNavMenu}>
-              <i onClick={logOut} className="fas fa-sign-out-alt"></i>
-              </MenuItem></>: ''
+               <MenuItem as={Link} to= '/makeAdmin'  onClick={handleCloseNavMenu}>
+                <Typography >Make Admin</Typography>
+              </MenuItem>
+              <MenuItem as={Link} to= '/addProduct'  onClick={handleCloseNavMenu}>
+                <Typography >Add Product</Typography>
+              </MenuItem>
+               <MenuItem as={Link} to= '/managAllProducts' onClick={handleCloseNavMenu}>
+                <Typography >Manage All Products</Typography>
+              </MenuItem>
+              </>: ''
                 
                 }
+                <MenuItem as={Link} to='/login'  onClick={handleCloseNavMenu}>
+                {user?.email ? <i onClick={logOut} className="fas fa-sign-out-alt"> </i> : <Typography >Log in</Typography>}
+                </MenuItem>
                 
-           
             </Menu>
           </Box>
         </Toolbar>

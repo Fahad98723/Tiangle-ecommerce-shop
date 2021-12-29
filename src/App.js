@@ -22,6 +22,9 @@ import CheckOut from './Pages/CheckOut/CheckOut';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import MyOrders from './Pages/MyOrders/MyOrders';
 import AllOrders from './Pages/AllOrders/AllOrders';
+import MakeAdmin from './Pages/MakeAdmin/MakeAdmin';
+import ManageAllProducts from './Pages/ManageAllProducts/ManageAllProducts';
+import AdminRoute from './Pages/AdminRoute/AdminRoute';
 function App() {
   return (
     <div className="body">
@@ -54,6 +57,10 @@ function App() {
         <Route path="/myOrders" element={<PrivateRoute> <MyOrders/>
           </PrivateRoute>} />
         <Route path="/AllOrders" element={<PrivateRoute> <AllOrders/>
+          </PrivateRoute>} />
+        <Route path="/makeAdmin" element={<AdminRoute> <MakeAdmin/>
+          </AdminRoute>} />
+        <Route path="/managAllProducts" element={<PrivateRoute> <ManageAllProducts/>
           </PrivateRoute>} />
         </Routes>
         

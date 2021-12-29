@@ -9,6 +9,8 @@ import { Grid } from '@mui/material';
 import useProducts from '../../../Hooks/useProducts';
 import { useDispatch, useSelector } from 'react-redux';
 import { productMinus, productPlus, productPlusCount, productsAddToCart } from '../../redux/action/productAction';
+import { useNavigate } from 'react-router-dom';
+
 
 const style = {
     position: 'absolute',
@@ -24,7 +26,12 @@ const style = {
     p: 4,
   };
 
+  
 const AddToCartModal = ({handleCartOpen, handleCartClose, cartOpen,productId}) => {
+    let navigate  = useNavigate()
+    const proceedHandle = () => {
+        navigate('/shoppingCart')
+    }
     const [product,setProduct] = useState({})
     useEffect(() => {
         fetch(`http://localhost:5000/products/${productId}`)
@@ -64,7 +71,7 @@ const AddToCartModal = ({handleCartOpen, handleCartClose, cartOpen,productId}) =
                             <button onClick={handleCartClose} className="btn btn-danger">
                                 Continue Shopping
                             </button>
-                            <button className="btn btn-danger">
+                            <button onClick={proceedHandle} className="btn btn-danger">
                                 Proceed To Cart
                             </button>
                         </div>

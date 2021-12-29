@@ -1,6 +1,7 @@
-import { Button, Input, TextField } from '@mui/material';
+import { Button, Container, Input, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import NavigationBar from '../Shared/Header/NavigationBar';
+import './AddProducts.css'
 const AddProducts = () => {
     const [name, setName] = useState('')
     const [category, setCategory] = useState('')
@@ -37,27 +38,35 @@ const AddProducts = () => {
         console.error('Error:', error);
         });
     };
+    
     return (
         <div>
             <NavigationBar></NavigationBar>
-             <form onSubmit={handleSubmit}>
-                <TextField placeholder='Products Name' required onChange={e => setName(e.target.value)}  style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
+             <div className='py-5'>
+             <Container>
+                 <div className="heading mb-5">
+                    <h2>Add New Product</h2>
+                 </div>
+             <form  onSubmit={handleSubmit}>
+                <input   placeholder='Products Name' required onChange={e => setName(e.target.value)}  style={{width : '50%', marginBottom:'20px', padding:'10px'}} variant='outlined'/>
                 <br />
-                <TextField placeholder='Products Categories' required onChange={e => setCategory(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
+                <input placeholder='Products Categories' required onChange={e => setCategory(e.target.value)} style={{width : '50%', marginBottom:'20px', padding:'10px'}} variant='outlined'/>
                 <br />
-                <TextField placeholder='Products Price' type='number' required onChange={e => setPrice(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
+                <input placeholder='Products Price' type='number' required onChange={e => setPrice(e.target.value)} style={{width : '50%', marginBottom:'20px', padding:'10px'}} variant='outlined'/>
                 <br />
-                <TextField placeholder=' Gender'  required onChange={e => setGender(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
+                <input placeholder=' Gender'  required onChange={e => setGender(e.target.value)} style={{width : '50%', marginBottom:'20px', padding:'10px'}} variant='outlined'/>
                 <br />
-                <TextField placeholder='Products Details' required onChange={e => setDescriptions(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} multiline
+                <input placeholder='Products Details' required onChange={e => setDescriptions(e.target.value)} style={{width : '50%', marginBottom:'20px', padding:'10px'}} multiline
                 rows={10}/>
                 <br />
-                <TextField placeholder=' Image Link'  required onChange={e => setImg(e.target.value)} style={{width : '25%', marginBottom:'10px', padding:'10px'}} variant='outlined'/>
+                <input placeholder=' Image Link'  required onChange={e => setImg(e.target.value)} style={{width : '50%', marginBottom:'20px', padding:'10px'}} variant='outlined'/>
                 <br />
                 {/* <input  style={{width : '25%', marginBottom:'10px', padding:'10px'}} onChange={e => setImage(e.target.files[0])} accept="image/*"   type="file" />
                 <br /> */}
-                <input type="submit" />
+                <input className='btn btn-success' type="submit" />
             </form>
+             </Container>
+             </div>
            
         </div>
     );
