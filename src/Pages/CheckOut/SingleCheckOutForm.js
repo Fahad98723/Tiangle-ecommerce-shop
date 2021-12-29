@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { cartRemove } from '../redux/action/productAction';
 
-const CheckOutForm = ({cart, singlePayment}) => {
+const SingleCheckOutForm = ({singlePayment}) => {
     const stripe = useStripe()
     const elements = useElements()
     const [clientSecret, setClientSecret] = useState('')
@@ -14,17 +14,10 @@ const CheckOutForm = ({cart, singlePayment}) => {
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState('');
 
-    console.log(cart);
-    console.log(singlePayment);
     const user = useSelector(state => state.products.user)
 
-    const {_id} = singlePayment
-
-
-      const totalAmount = singlePayment.totalAmount ? singlePayment.totalAmount : cart.totalAmount
-
-
-    console.log(totalAmount);
+    const {_id, totalAmount} = singlePayment
+    console.log('totalAmount' , totalAmount);
     useEffect(() => {
       fetch('http://localhost:5000/create-payment-intent', {
         method : "POST", 
@@ -87,21 +80,8 @@ const CheckOutForm = ({cart, singlePayment}) => {
             last4: paymentMethod.card.last4,
             transaction: paymentIntent.client_secret.slice('_secret')[0]
         }
-        
-        if(!_id){
-          const data = {cart, ...payment, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending'}
 
-        const uri = `http://localhost:5000/orders`
-        fetch(uri, {
-          method : 'POST',
-          headers : {
-            'content-type' : 'application/json'
-          },
-          body : JSON.stringify(data)
-        })
-        }
-        else{
-          const url = `http://localhost:5000/orders/${_id}`;
+        const url = `http://localhost:5000/orders/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -113,9 +93,6 @@ const CheckOutForm = ({cart, singlePayment}) => {
             .then(data => console.log(data));
 
         }
-        }
-
-        
     }
 
     let navigate = useNavigate()
@@ -126,16 +103,6 @@ const CheckOutForm = ({cart, singlePayment}) => {
     }
 
     const handlePayLater = () => {
-      console.log(cart);
-      const data = {cart, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending'}
-        const uri = `http://localhost:5000/orders`
-        fetch(uri, {
-          method : 'POST',
-          headers : {
-            'content-type' : 'application/json'
-          },
-          body : JSON.stringify(data)
-        })
         navigate('/home')
         dispatch(cartRemove([]))
     }
@@ -158,8 +125,8 @@ const CheckOutForm = ({cart, singlePayment}) => {
           },
         }}
       />
-     { processing ?  <CircularProgress> </CircularProgress>:<button className='btn btn-success' type="submit" disabled={!stripe || success}>
-        Pay Now
+     { processing ?  <CircularProgress> </CircularProgress>:<button type="submit" disabled={!stripe || success}>
+        Pay
       </button>}
       {
         success ? <button onClick={() => handleHome()} className='btn btn-warning ms-4'>Home</button> : <button onClick={() => handlePayLater()} className='btn btn-success ms-4'>Pay Later</button>
@@ -169,4 +136,4 @@ const CheckOutForm = ({cart, singlePayment}) => {
     );
 };
 
-export default CheckOutForm;
+export default SingleCheckOutForm;

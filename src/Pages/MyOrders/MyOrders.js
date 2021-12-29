@@ -69,7 +69,9 @@ const MyOrders = () => {
                     </tbody>
                     </Table>
                     <div>
-                    <Link to={`/checkOut/${my._id}`}><button className="btn btn-warning">Pay</button></Link>
+                    {
+                        my.transaction && my.last4 ? <button className="ms-3 btn btn-warning">Paid</button> : <Link to={`/checkOut/${my._id}`}><button className="btn btn-warning">Pay Now</button></Link>
+                    }
                     <button onClick={() => handleDelete(my._id)} className="ms-3 btn btn-warning">Delete From My Order</button>
                     </div>
                     </div>

@@ -21,6 +21,7 @@ import Register from './Pages/Register/Register';
 import CheckOut from './Pages/CheckOut/CheckOut';
 import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
 import MyOrders from './Pages/MyOrders/MyOrders';
+import AllOrders from './Pages/AllOrders/AllOrders';
 function App() {
   return (
     <div className="body">
@@ -51,6 +52,8 @@ function App() {
         <Route path="/checkOut/:id" element={<PrivateRoute> <CheckOut/>
           </PrivateRoute>} />
         <Route path="/myOrders" element={<PrivateRoute> <MyOrders/>
+          </PrivateRoute>} />
+        <Route path="/AllOrders" element={<PrivateRoute> <AllOrders/>
           </PrivateRoute>} />
         </Routes>
         

@@ -146,8 +146,6 @@ const NavigationBar = () => {
                 {
                   user?.email ? <><MenuItem  onClick={handleCloseNavMenu}>
                   <Typography sx={{display : 'block'}} textAlign="center">{user?.displayName}</Typography>
-                </MenuItem> <MenuItem  onClick={handleCloseNavMenu}>
-                <Link to= ''>Dashboard</Link>
                 </MenuItem>
 
                <MenuItem  onClick={handleCloseNavMenu}>
@@ -156,6 +154,9 @@ const NavigationBar = () => {
 
                <MenuItem  onClick={handleCloseNavMenu}>
                 <Link to= '/myOrders'>MyOrders</Link>
+              </MenuItem>
+               <MenuItem  onClick={handleCloseNavMenu}>
+                <Link to= '/allOrders'>All Orders</Link>
               </MenuItem>
               
               <MenuItem  onClick={handleCloseNavMenu}>
