@@ -52,7 +52,7 @@ export default function TabsProducts() {
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ width : '100%', mx: 'auto' }} >
-        <Tabs value={value} onChange={handleChange}  aria-label="basic tabs example">
+        <Tabs centered value={value} onChange={handleChange}  aria-label="basic tabs example">
           <Tab className='tabs-btn' style={{ color:'white', fontSize:'20px'}} label="T-Shirts" {...a11yProps(0)} />
           <Tab className='tabs-btn' style={{ color:'white', fontSize:'20px'}} label="Shirts" {...a11yProps(1)} />
           <Tab className='tabs-btn' style={{ color:'white', fontSize:'20px'}} label="Pants" {...a11yProps(2)} />
