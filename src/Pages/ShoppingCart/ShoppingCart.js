@@ -143,8 +143,8 @@ const ShoppingCart = () => {
             <h3>Get Shipping Estimate</h3>
             <div className='mt-3'>
               <form onSubmit={shippingSubmit}>
-              <input className='p-2 w-45 m-2' value={'Bangladesh'} type="text" />
-              <input required placeholder='City Name' onChange={cityHandle} defaultValue={cart.city ? cart.city : city} className='p-2 w-45 m-2 ' type="text" />
+              <input className='p-2 w-50 m-2' value={'Bangladesh'} type="text" />
+              <input required placeholder='City Name' onChange={cityHandle} defaultValue={cart.city ? cart.city : city} className='p-2 w-50 m-2 ' type="text" />
               <input required placeholder='Zip Code' className='p-2 m-2  w-25 ' type="number" />
               <input className='btn btn-danger m-2 ' type="submit" value="Update" />
               </form>
