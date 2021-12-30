@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Contact from '../../Contact/Contact';
 import { admin } from '../../redux/action/productAction';
 import NavigationBar from '../../Shared/Header/NavigationBar';
 import Banner from '../Banner/Banner';
@@ -29,6 +30,7 @@ const Home = () => {
             <Banner></Banner>
             <Products></Products>
             <Discount></Discount>
+            <Contact></Contact>
         </div>
     );
 };

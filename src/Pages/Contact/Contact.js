@@ -1,47 +1,36 @@
-import React from 'react';
-import { Carousel } from 'react-bootstrap';
-
+import React, { useRef } from 'react';
+import emailjs from 'emailjs-com';
+import { Col, Container, Row } from 'react-bootstrap';
 const Contact = () => {
+    const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm('service_21g9qrt', 'template_i4dlpr9', e.target, "user_3t5CCLF9y88JMlS2wO0Lf")
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+    e.target.reset()
+  };
     return (
-        <div>
-            <Carousel>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=First slide&bg=373940"
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Second slide&bg=282c34"
-      alt="Second slide"
-    />
+        <Container id='contact' className='py-5'>
+                <div className="heading mb-5 text-center">
+                    <h1 className='fw-bold'>Contact With Us</h1>
+                </div>
+                <div className="">
+                <form className='w-50 mx-auto' ref={form} onSubmit={sendEmail}>
+                    <input placeholder='Your Name ' className='w-100 mb-3 p-2' type="text" name="user_name" />
+                    <input placeholder='Your Email ' className='w-100 mb-3 p-2' type="email" name="user_email" />
+                    <textarea rows='5' placeholder='Your Message ' className='w-100 mb-3 p-2' name="message" />
+                    <input className='btn btn-success' type="submit" value="Send" />
+                </form>
+                </div>
+            
+        </Container>
 
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="holder.js/800x400?text=Third slide&bg=20232a"
-      alt="Third slide"
-    />
-
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
-        </div>
     );
 };
 

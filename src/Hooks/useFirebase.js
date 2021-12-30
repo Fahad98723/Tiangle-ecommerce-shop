@@ -18,7 +18,7 @@ const useFirebase = () => {
         return signInWithPopup(auth, googleProvider)      
     }
 
-    const signUpWithEmailAndPass = (name, email, password,  image) => {
+    const signUpWithEmailAndPass = (name, email, password,  image, navigate) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
@@ -32,6 +32,7 @@ const useFirebase = () => {
               }).catch((error) => {
                 setError(error.errorMessage)
               });
+            navigate('/')
         })
         .catch((error) => {
             const errorCode = error.code;

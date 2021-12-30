@@ -168,7 +168,10 @@ const CheckOutForm = ({cart, singlePayment}) => {
         success ? <button onClick={() => handleHome()} className='btn btn-warning ms-4'>Home</button> : <button onClick={() => handlePayLater()} className='btn btn-success ms-4'>Pay Later</button>
       }
       {
-        success && <Alert sx={{mt:3}} severity="success">Thank You For Your Payment!</Alert>
+        success && !error ? <Alert sx={{mt:3}} severity="success">Thank You For Your Payment!</Alert> : ''
+      }
+      {
+        error && <Alert sx={{mt:3}} severity="error">{error} — check it out!</Alert>
       }
     </form>
         </div>

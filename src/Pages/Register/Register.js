@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
 import { setUser } from '../redux/action/productAction';
 import NavigationBar from '../Shared/Header/NavigationBar';
@@ -9,6 +9,7 @@ const Register = () => {
     const {googleSingIn,logOut, signUpWithEmailAndPass, error} = useFirebase()
     
     const [userDetails, setUserDetails] = useState({})
+    const navigate = useNavigate()
     const handleOnBlur = e => {
         const field = e.target.name
         const value = e.target.value
@@ -24,7 +25,7 @@ const Register = () => {
     
     const formHandle = (e) => {
         e.preventDefault()
-        signUpWithEmailAndPass(name, email, password, image)
+        signUpWithEmailAndPass(name, email, password, image,navigate)
     }
     return (
         <div>
@@ -48,9 +49,8 @@ const Register = () => {
             </form>
             <h5 className='text-danger my-1'>{error}</h5>
             <h6 className=' mb-2'>Already have an account ? <Link to='/login'>Login</Link></h6>
-            
+            <button className='btn btn-warning'  onClick={googleSingIn}>Google log in </button>
             </Container>
-            <button onClick={googleSingIn}>Google log in </button>
         </div>
     );
 };

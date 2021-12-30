@@ -81,7 +81,7 @@ const Login = () => {
             </form>
             <h5 className='text-danger my-1'>{error}</h5>
             <h6 className=' mb-4'>Create an account ? <Link to='/register'>Sign Up</Link></h6>
-            <button onClick={loginWithGoogle}>Google log in </button>
+            <button className='btn btn-warning'  onClick={loginWithGoogle}>Google log in </button>
             </Container>
             
         </div>
