@@ -26,7 +26,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
 
     console.log(totalAmount);
     useEffect(() => {
-      fetch('http://localhost:5000/create-payment-intent', {
+      fetch('https://arcane-earth-75147.herokuapp.com/create-payment-intent', {
         method : "POST", 
         headers : {
           'content-type' : 'application/json'
@@ -91,7 +91,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
         if(!_id){
           const data = {cart, ...payment, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending'}
 
-        const uri = `http://localhost:5000/orders`
+        const uri = `https://arcane-earth-75147.herokuapp.com/orders`
         fetch(uri, {
           method : 'POST',
           headers : {
@@ -101,7 +101,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
         })
         }
         else{
-          const url = `http://localhost:5000/orders/${_id}`;
+          const url = `https://arcane-earth-75147.herokuapp.com/orders/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -128,7 +128,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
     const handlePayLater = () => {
       console.log(cart);
       const data = {cart, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending'}
-        const uri = `http://localhost:5000/orders`
+        const uri = `https://arcane-earth-75147.herokuapp.com/orders`
         fetch(uri, {
           method : 'POST',
           headers : {
@@ -146,11 +146,14 @@ const CheckOutForm = ({cart, singlePayment}) => {
         options={{
           style: {
             base: {
-              fontSize: '18px',
-              color: 'white',
+              fontSize: '20px',
+              color: 'black',
               '::placeholder': {
-                color: '#aab7c4',
+                color: 'black',
               },
+              backgroundColor:'white',
+              padding : '15px 5px',
+              lineHeight: '2'
             },
             invalid: {
               color: '#9e2146',

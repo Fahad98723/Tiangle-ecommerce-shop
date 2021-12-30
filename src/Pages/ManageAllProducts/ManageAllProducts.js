@@ -8,7 +8,7 @@ const ManageAllProducts = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://arcane-earth-75147.herokuapp.com/products')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[])
@@ -16,7 +16,7 @@ const ManageAllProducts = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure you want to delete the product')
             if (confirm) {
-                fetch(`http://localhost:5000/products/${id}`, {
+                fetch(`https://arcane-earth-75147.herokuapp.com/products/${id}`, {
                 method : "DELETE"
             })
             .then(res => res.json())

@@ -1,5 +1,6 @@
 import { Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { useTheme } from '@mui/system';
 import React from 'react';
 import './Banner.css'
 const bannerItems = [
@@ -9,32 +10,36 @@ const bannerItems = [
     {name : 'Jacket ', background : 'https://i.ibb.co/MMR0LQx/amanda-vick-oh-Wf6-Yuz-OQk-unsplash.jpg' , stock : '50' , path : 'jacket'},
 ]
 
-const useStyle = makeStyles({
+
+const Banner = () => {
+    const theme = useTheme()
+    const useStyle = makeStyles({
     item : {
         '&:hover': {
             filter : 'grayscale(100%)',
             transform : 'scale(1.1)'
-         }
+         },
+         [theme.breakpoints.down('md')] : {
+            height : '35vh!important'
+        }
     }
-})
-
-const Banner = () => {
+    })
     const {item} = useStyle()
     return (
         <div>
             <Grid  container >
                 {
-                    bannerItems.map(items => <Grid style={{overflow:'hidden'}} item xs={12} md={3}>
+                    bannerItems.map(items => <Grid  style={{overflow:'hidden'}} item xs={6} md={3}>
 
-                        <div className={item} style={{background : `url(${items.background}) no-repeat center center`, backgroundSize : 'cover', height : '90vh', width : '100%', transition : '1s', display:'flex', alignItems:'center', justifyContent : 'center'
+                        <div className={item} style={{background :  `linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)) , url(${items.background}) no-repeat center center`, backgroundSize : 'cover', height : '90vh', width : '100%', transition : '1s', display:'flex', alignItems:'center', justifyContent : 'center'
                         }}>
-                            <div>
-                        <Typography sx={{mb:2}} variant="h1" component="div" gutterBottom>
+                            <div className='details'>
+                        <h1 className='mb-2'gutterBottom>
                         {items.name}
-                        </Typography>
-                        <Typography variant="h4" component="div" gutterBottom>
+                        </h1>
+                        <h3 gutterBottom>
                         Stock Items {items.stock}
-                        </Typography>
+                        </h3>
                             </div>
 
                         </div>   

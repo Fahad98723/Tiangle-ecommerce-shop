@@ -155,7 +155,7 @@ const ShoppingCart = () => {
               <div>
                 <h4 className='mb-3'>Sub Total : $ {grandTotalAmount ? grandTotalAmount : 0} </h4>
                 <h4 className='mb-3'>Shipping Cost : $ {!shipping ? cart.shippingCost : shipping } </h4>
-                <button onClick={handleCheckout} className="btn btn-danger ">Checkout</button>
+                <button onClick={handleCheckout} className="btn btn-danger" disabled={!shipping}>Checkout</button>
               </div>
               </Box>
         </Grid>

@@ -27,7 +27,7 @@ const style = {
 const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
     const [product,setProduct] = useState({})
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${productId}`)
+        fetch(`https://arcane-earth-75147.herokuapp.com/products/${productId}`)
         .then(res => res.json())
         .then(data => setProduct(data))
     },[productId])

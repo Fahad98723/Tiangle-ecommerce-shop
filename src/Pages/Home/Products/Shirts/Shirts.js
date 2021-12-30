@@ -51,7 +51,7 @@ const Shirts = () => {
             <CircularProgress />
             </Stack> : <Grid container spacing={2}>
                 {
-                    Shirts.slice(0,6).map(shirt => <Grid item lg={4}>
+                    Shirts.slice(0,6).map(shirt => <Grid item lg={4} md={6} xs={12}>
                         <Card  sx={{ maxWidth: '100%' }}>
                       
                         <CardMedia onClick={() => handleClick(shirt._id)}

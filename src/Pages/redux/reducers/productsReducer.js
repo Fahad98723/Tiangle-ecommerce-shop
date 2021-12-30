@@ -3,7 +3,8 @@ const initialState = {
     cart : [],
     user : {},
     updateCart : [],
-    totalAmount : 0
+    totalAmount : 0,
+    admin : {}
 }
 
 function productReducer(state = initialState, action){
@@ -41,6 +42,10 @@ function productReducer(state = initialState, action){
         }
         case 'CART_REMOVE' : {
             const newState = {...state, cart : action.payload}           
+            return newState
+        }
+        case 'ADMIN' : {
+            const newState = {...state, admin : action.payload}           
             return newState
         }
         default :

@@ -6,9 +6,11 @@ const Products = () => {
     return (
         <div >
             <Container sx={{py:5}}>
-            <Typography  variant = 'h2'>
+            <div className="heading mb-5">
+            <h1 className='text-center'>
                 Grab You Favorite Things
-            </Typography>
+            </h1>
+            </div>
             <TabsProducts></TabsProducts>
             </Container>
             

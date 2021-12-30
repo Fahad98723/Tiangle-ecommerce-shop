@@ -21,22 +21,22 @@ const Discount = () => {
     return (
         <Container  sx={{py:5}}>
             <div className="heading ">
-                <Typography  variant = 'h2'>
+                <h1  >
                     Offer
-                </Typography>
-                <Typography  variant = 'h4'>
+                </h1>
+                <h3 >
                     20% Discount On Our Full Set Item
-                </Typography>
+                </h3>
             </div>
             <Grid container sx={{textAlign:'left', mt:5}} spacing={2}>
                 <Grid style={bannerImage} item xs={12} lg={12}>
-                <div className="details ms-3">
-                <Typography  variant = 'h3'>
+                <div className="details ms-3 text-dark">
+                <h2 className='fw-bolder'>
                     New Arrivals
-                </Typography>
-                <Typography  variant = 'h4'>
+                </h2>
+                <h3 className='fw-bolder' >
                     {fullSet[0]?.name}
-                </Typography>
+                </h3>
                 <Link to={`/product/${fullSet[0]?._id}`} className="btn btn-danger mt-3">Shop Now</Link>
                 </div>
                 </Grid>
@@ -45,13 +45,13 @@ const Discount = () => {
         height:'300px',
         display:'flex',
         alignItems : 'center'}} item xs={12} lg={6}>
-                <div className="details ms-3">
-                <Typography  variant = 'h3'>
+                <div className="details ms-3 text-light">
+                <h2 className='fw-bolder'>
                     New Arrivals
-                </Typography>
-                <Typography  variant = 'h4'>
+                </h2>
+                <h3 className='fw-bolder' >
                     {fullSet[1]?.name}
-                </Typography>
+                </h3>
                 <Link to={`/product/${fullSet[1]?._id}`} className="btn btn-danger mt-3">Shop Now</Link>
                 </div>
                 </Grid>
@@ -60,13 +60,13 @@ const Discount = () => {
         height:'300px',
         display:'flex',
         alignItems : 'center'}} xs={12} lg={6}>
-                   <div className="details ms-3">
-                <Typography  variant = 'h3'>
+                   <div className="details ms-3 text-dark">
+                   <h2 className='fw-bolder'>
                     New Arrivals
-                </Typography>
-                <Typography  variant = 'h4'>
+                </h2>
+                <h3 className='fw-bolder' >
                     {fullSet[2]?.name}
-                </Typography>
+                </h3>
                 <Link to={`/product/${fullSet[2]?._id}`} className="btn btn-danger mt-3">Shop Now</Link>
                 </div>
                 </Grid>

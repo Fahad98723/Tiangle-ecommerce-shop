@@ -7,10 +7,11 @@ import NavigationBar from '../Shared/Header/NavigationBar';
 
 const MyOrders = () => {
     const user = useSelector(state => state.products.user)
+    
     const [myOrder, setMyOrder] = useState([])
     console.log(user.email);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders?email=${user.email}`)
+        fetch(`https://arcane-earth-75147.herokuapp.com/orders?email=${user.email}`)
         .then(res => res.json())
         .then(data => setMyOrder(data))
     },[user.email, setMyOrder])
@@ -19,7 +20,7 @@ const MyOrders = () => {
         // const confirm = window.confirm("Are You Sure You Want To Cancel ?")
         console.log(id);
         // if (confirm) {
-            fetch(`http://localhost:5000/orders/${id}`,{
+            fetch(`https://arcane-earth-75147.herokuapp.com/orders/${id}`,{
             method : "DELETE"
         })
         .then(res => res.json())

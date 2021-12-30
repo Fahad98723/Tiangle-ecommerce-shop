@@ -11,7 +11,8 @@ const useFirebase = () => {
     const [isLoading, setIsLoading] = useState(true)
     const dispatch = useDispatch()
     const user = useSelector(state => state.products.user)
-    const  [isAdmin, setIsAdmin] = useState(false)
+    const ravis = useSelector(state => state.products.admin)
+
     const [error, setError] = useState('')
     const googleSingIn = () => {     
         return signInWithPopup(auth, googleProvider)      
@@ -44,14 +45,8 @@ const useFirebase = () => {
         return signInWithEmailAndPassword(auth, email, password)       
         }
 
-    const logOut = () => {
-        signOut(auth).then(() => {
-            dispatch(setUser({}))
-            setError('')
-          }).catch((error) => {
-            setError(error.errorMessage)
-          }).finally(() => setIsLoading(false));
-    }
+
+    
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
@@ -64,9 +59,12 @@ const useFirebase = () => {
           });
     },[auth, dispatch])
 
+    
+
+
     const saveUser = (email, name, method) => {
         const user = {email, name}
-        fetch('http://localhost:5000/users', {
+        fetch('https://arcane-earth-75147.herokuapp.com/users', {
             method : method,
             headers : {
                 'content-type' : 'application/json'
@@ -75,14 +73,16 @@ const useFirebase = () => {
         })
     }
 
-    useEffect( () => {
-        fetch(`http://localhost:5000/users/${user.email}`)
-        .then(res => res.json())
-        .then(data =>  setIsAdmin(data.admin))
-    },[user.email])
-    console.log('user email',user.email, isAdmin);
+    const logOut = () => {
+        signOut(auth).then(() => {
+            dispatch(setUser({}))
+            setError('')
+          }).catch((error) => {
+            setError(error.errorMessage)
+          }).finally(() => setIsLoading(false));
+    }
 
-    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error,isAdmin, setError, saveUser, setIsLoading, isLoading}
+    return {googleSingIn, logOut,signUpWithEmailAndPass,signInWithEmailAndPass,error, setError, saveUser, setIsLoading, isLoading}
 }
 
 export default useFirebase

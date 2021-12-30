@@ -1,10 +1,10 @@
 import { Container } from '@mui/material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
-import { setUser } from '../redux/action/productAction';
+import { admin, setUser } from '../redux/action/productAction';
 import NavigationBar from '../Shared/Header/NavigationBar';
 
 const Login = () => {
@@ -13,6 +13,7 @@ const Login = () => {
     const pathName = location.state?.from?.pathname
     let navigate = useNavigate()
     const [userDetails, setUserDetails] = useState({})
+
     const handleOnBlur = e => {
         const field = e.target.name
         const value = e.target.value
@@ -60,6 +61,7 @@ const Login = () => {
         e.preventDefault()
         logInWithEmailAndPass( email, password)
     }
+    
     return (
         <div>
             <NavigationBar></NavigationBar>

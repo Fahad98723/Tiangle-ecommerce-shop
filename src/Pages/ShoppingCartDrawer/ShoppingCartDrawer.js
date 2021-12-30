@@ -37,8 +37,7 @@ const ShoppingCartDrawer = ({setState,state}) => {
         const recentProducts = cart?.find(c => c._id === id)
         if (recentProducts.quantity > 1) {
           recentProducts.quantity = recentProducts.quantity - 1
-        }
-        
+        } 
         dispatch(updateCart(cart))
       }
     const list =  (

@@ -25,7 +25,7 @@ const AddProducts = () => {
         // console.log(category);
         // console.log(price);
         // console.log(image);
-        fetch('http://localhost:5000/products', {
+        fetch('https://arcane-earth-75147.herokuapp.com/products', {
         method: 'post',
         body: formData
         })

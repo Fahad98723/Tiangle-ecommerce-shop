@@ -18,7 +18,7 @@ const CheckOut = () => {
     console.log(id);
     useEffect(() => {
         if(id){
-            fetch(`http://localhost:5000/orders/${id}`)
+            fetch(`https://arcane-earth-75147.herokuapp.com/orders/${id}`)
             .then(res => res.json())
             .then(data => setSinglePayment(data))
         }
@@ -30,10 +30,10 @@ const CheckOut = () => {
             <Grid container spacing={2}>
                 <Grid item xs={12} lg={6}>
                    <div className="details mb-5">
-                       <h2>Contact : {user.email}</h2>
-                       <h2>Ship to : {}</h2>
+                       <h4>Contact : {user.email}</h4>
+                       <h4>Ship to : {cart.city ? cart.city : singlePayment.city}</h4>
                    </div>
-                   <div className="payment bg-danger">
+                   <div className="payment">
                        <h2 className='mb-3'>Pay With Card</h2>
                        <h2 className='mb-5'>Total Amount : $ {cart.totalAmount ? cart.totalAmount : singlePayment.totalAmount}</h2>
                        <Elements stripe={stripePromise}>

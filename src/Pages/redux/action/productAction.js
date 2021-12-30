@@ -47,3 +47,9 @@ export function cartRemove (payload){
         payload
     }
 }
+export function admin (payload){
+    return {
+        type : 'ADMIN',
+        payload
+    }
+}

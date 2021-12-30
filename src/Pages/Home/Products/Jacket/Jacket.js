@@ -49,7 +49,7 @@ const Jacket = () => {
             </Stack> :
             <Grid container spacing={2}>
             {
-                Jackets.slice(0,6).map(jacket => <Grid item lg={4}>
+                Jackets.slice(0,6).map(jacket => <Grid item lg={4} md={6} xs={12}>
                     <Card  sx={{ maxWidth: '100%' }}>
                     
                     <CardMedia onClick={() => handleClick(jacket._id)}

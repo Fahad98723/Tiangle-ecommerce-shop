@@ -5,16 +5,16 @@ import { Navigate, useLocation } from 'react-router-dom';
 import useFirebase from '../../Hooks/useFirebase';
 
 const AdminRoute = ({ children, ...rest }) => {
-   const {isAdmin, isLoading} = useFirebase()
-   const user = useSelector(state => state.products.user)
-   let location = useLocation();
-   if (isLoading) { return <Stack sx={{py:5}} alignItems="center">
-   <CircularProgress />
-   </Stack> }
-    if(user.email && isAdmin){
-        return children
+    const user = useSelector(state => state.products.user);
+    const admin = useSelector(state => state.products.admin);
+    const {isLoading} = useFirebase()
+    let location = useLocation();
+    if (isLoading) { return <Stack sx={{py:5}} alignItems="center">
+    <CircularProgress />
+    </Stack> }
+    if (admin.role) {
+        return children;
     }
     return <Navigate to="/login" state={{ from: location }} />;
 };
-
 export default AdminRoute;
