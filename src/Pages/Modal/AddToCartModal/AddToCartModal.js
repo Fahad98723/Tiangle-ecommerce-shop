@@ -12,20 +12,6 @@ import { productMinus, productPlus, productPlusCount, productsAddToCart } from '
 import { useNavigate } from 'react-router-dom';
 
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: '50%',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    height:'300px',
-    overflowY : 'scroll',
-    p: 4,
-  };
-
   
 const AddToCartModal = ({handleCartOpen, handleCartClose, cartOpen,productId}) => {
     let navigate  = useNavigate()
@@ -56,7 +42,7 @@ const AddToCartModal = ({handleCartOpen, handleCartClose, cartOpen,productId}) =
                 }}
             >
                 <Fade in={cartOpen}>
-                <Box sx={style}>
+                <Box className='viewModal' sx={{height:'300px'}}>
                 <Grid container sx={{alignItems:'center'}} spacing={2}>
                     <Grid item xs={12} lg={4}>
                         <img style={{height:'100%', width:'100%'}} className='img-fluid' src={product.img} alt="" />
@@ -68,10 +54,10 @@ const AddToCartModal = ({handleCartOpen, handleCartClose, cartOpen,productId}) =
                         <Typography style={{fontFamily: 'Poppins, sans-serif'}} variant='body2'>Cart Subtotal : {product.category}</Typography>
 
                         <div className="d-flex justify-content-between mt-3">
-                            <button onClick={handleCartClose} className="btn btn-danger">
+                            <button onClick={handleCartClose} className="btn btn-danger m-2">
                                 Continue Shopping
                             </button>
-                            <button onClick={proceedHandle} className="btn btn-danger">
+                            <button onClick={proceedHandle} className="btn btn-danger m-2">
                                 Proceed To Cart
                             </button>
                         </div>

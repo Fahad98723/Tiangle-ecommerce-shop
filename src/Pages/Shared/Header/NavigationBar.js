@@ -46,8 +46,8 @@ const NavigationBar = () => {
   const {logOut} = useFirebase()
   const admin = useSelector(state => state.products.admin);
   return (
-    <AppBar position="static">
-      <Container maxWidth="xl" className='bg-dark'>
+    <AppBar className='bg-dark' position="static">
+      <Container maxWidth="xl" >
         <Toolbar disableGutters>
           <Typography
             variant="h4"
@@ -55,7 +55,7 @@ const NavigationBar = () => {
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            Triangle E-Commerce
+            Triangle Shop
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -88,7 +88,6 @@ const NavigationBar = () => {
               }}            
             >
             <Link className='btn btn-dark mx-3 my-2  d-block mr-0' to='/home'>Home</Link>
-            <Link className='btn btn-dark mx-3 my-2 d-block' to='/addProduct'>Add Product</Link>
             <Link className='btn btn-dark mx-3 my-2 d-block' to='/tShirts'>T-Shirts</Link>
             <Link className='btn btn-dark mx-3 my-2 d-block' to='/shirts'>Shirts</Link>
             <Link className='btn btn-dark mx-3 my-2 d-block' to='/pants'>Pants</Link>
@@ -100,9 +99,9 @@ const NavigationBar = () => {
             variant="h6"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, }}
+            sx={{ flexGrow: 4, display: { xs: 'flex', md: 'none' }, }}
           >
-            Triangle E-Commerce
+            Triangle Shop
           </Typography>
           <Box sx={{ flexGrow: 1, marginLeft:'50px', display: { xs: 'none', md: 'flex' } }}>
             <Link className='btn btn-light me-2' to='/home'>Home</Link>
@@ -143,31 +142,31 @@ const NavigationBar = () => {
                   <Typography sx={{display : 'block'}} textAlign="center">{user?.displayName}</Typography>
                 </MenuItem>
 
-               <MenuItem as={Link} to= '/shoppingCart' onClick={handleCloseNavMenu}>
+               <MenuItem sx={{color : 'black'}} as={Link} to= '/shoppingCart' onClick={handleCloseNavMenu}>
                 <Typography >Cart</Typography>
               </MenuItem>
 
-               <MenuItem as={Link} to= '/myOrders' onClick={handleCloseNavMenu}>
+               <MenuItem sx={{color : 'black'}} as={Link} to= '/myOrders' onClick={handleCloseNavMenu}>
                 <Typography >MyOrders</Typography>
               </MenuItem>
                
               </>: ''
                 }
                 {
-                  admin.role ? <><MenuItem as={Link} to= '/allOrders' onClick={handleCloseNavMenu}>
+                  admin.role ? <><MenuItem sx={{color : 'black'}} as={Link} to= '/allOrders' onClick={handleCloseNavMenu}>
                   <Typography >All Orders</Typography>
                 </MenuItem>
-                 <MenuItem as={Link} to= '/makeAdmin'  onClick={handleCloseNavMenu}>
+                 <MenuItem sx={{color : 'black'}} as={Link} to= '/makeAdmin'  onClick={handleCloseNavMenu}>
                   <Typography >Make Admin</Typography>
                 </MenuItem>
-                <MenuItem as={Link} to= '/addProduct'  onClick={handleCloseNavMenu}>
+                <MenuItem sx={{color : 'black'}} as={Link} to= '/addProduct'  onClick={handleCloseNavMenu}>
                   <Typography >Add Product</Typography>
                 </MenuItem>
-                 <MenuItem as={Link} to= '/manageAllProducts' onClick={handleCloseNavMenu}>
+                 <MenuItem sx={{color : 'black'}} as={Link} to= '/manageAllProducts' onClick={handleCloseNavMenu}>
                   <Typography >Manage All Products</Typography>
                 </MenuItem></> : ''
                 }
-                <MenuItem as={Link} to='/login'  onClick={handleCloseNavMenu}>
+                <MenuItem sx={{color : 'black'}} as={Link} to='/login'  onClick={handleCloseNavMenu}>
                 {user?.email ? <i onClick={logOut} className="fas fa-sign-out-alt"> </i> : <Typography >Log in</Typography>}
                 </MenuItem>
                 

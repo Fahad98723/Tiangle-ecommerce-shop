@@ -53,10 +53,10 @@ export default function TabsProducts() {
     <Box sx={{ width: '100%' }}>
       <Box sx={{ width : '100%', mx: 'auto' }} >
         <Tabs value={value} onChange={handleChange}  aria-label="basic tabs example">
-          <Tab style={{ color:'white', fontSize:'20px'}} label="T-Shirts" {...a11yProps(0)} />
-          <Tab style={{ color:'white', fontSize:'20px'}} label="Shirts" {...a11yProps(1)} />
-          <Tab style={{ color:'white', fontSize:'20px'}} label="Pants" {...a11yProps(2)} />
-          <Tab style={{ color:'white', fontSize:'20px'}} label="Jackets" {...a11yProps(3)} />
+          <Tab className='tabs-btn' style={{ color:'white', fontSize:'20px'}} label="T-Shirts" {...a11yProps(0)} />
+          <Tab className='tabs-btn' style={{ color:'white', fontSize:'20px'}} label="Shirts" {...a11yProps(1)} />
+          <Tab className='tabs-btn' style={{ color:'white', fontSize:'20px'}} label="Pants" {...a11yProps(2)} />
+          <Tab className='tabs-btn' style={{ color:'white', fontSize:'20px'}} label="Jackets" {...a11yProps(3)} />
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>

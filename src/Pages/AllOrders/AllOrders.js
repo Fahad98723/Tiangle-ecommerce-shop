@@ -53,6 +53,9 @@ const AllOrders = () => {
         <NavigationBar></NavigationBar>
         <Container >
             <div className="py-5">
+            <div className="heading mb-5">
+                <h1>All Orders</h1>
+                </div>
             {
                 allOrder?.map(my => 
                     <div className='mb-5'>
@@ -64,7 +67,7 @@ const AllOrders = () => {
                         <th>Name</th>
                         <th>Product Qunatity</th>
                         <th>Price</th>
-                        <th>Total Amount</th>
+                        <th>Product Total Amount</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -85,6 +88,10 @@ const AllOrders = () => {
                     </tbody>
                     </Table>
                     <div>
+                        <h5>Total Products Payment : ${my.grandTotalAmount}</h5>
+                        <h5>Shipping Cost : ${my.shippingCost}</h5>
+                        <h2>Total : ${my.totalAmount}</h2>
+                        <h5>Address : {my.city}</h5>
                     {
                         my?.transaction && my?.last4 ? <button className=" btn btn-warning">Paid</button> : <button className="btn btn-warning">Not Payed</button>
                     }

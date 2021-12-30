@@ -1,4 +1,4 @@
-import { CircularProgress } from '@mui/material';
+import { Alert, CircularProgress } from '@mui/material';
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect } from 'react';
 import { useState } from 'react';
@@ -166,6 +166,9 @@ const CheckOutForm = ({cart, singlePayment}) => {
       </button>}
       {
         success ? <button onClick={() => handleHome()} className='btn btn-warning ms-4'>Home</button> : <button onClick={() => handlePayLater()} className='btn btn-success ms-4'>Pay Later</button>
+      }
+      {
+        success && <Alert sx={{mt:3}} severity="success">Thank You For Your Payment!</Alert>
       }
     </form>
         </div>

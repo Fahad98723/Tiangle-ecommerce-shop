@@ -13,6 +13,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container, Grid } from '@mui/material';
 import { deleteFromCart, updateCart } from '../redux/action/productAction';
 import { Link } from 'react-router-dom';
+import './ShoppinCartDrawer.css'
+
 const ShoppingCartDrawer = ({setState,state}) => {
 
     const dispatch = useDispatch()
@@ -51,11 +53,11 @@ const ShoppingCartDrawer = ({setState,state}) => {
         //   onClick={toggleDrawer(anchor, false)}
         //   onKeyDown={toggleDrawer(anchor, false)}
         >
-            <Box>
+            <Box >
             <div className="cart-details m-2">
                 <h2>Your Shopping Cart</h2>   
             </div>
-            <div  style={{height:'300px', overflowY:'scroll'}}  className="cart-items px-2">
+            <div  style={{height:'600px', overflowY:'scroll'}}  className="cart-items px-2">
                 {
                     cart?.map(c =>
                         <Grid container sx={{my:2 , alignItems:'center'}}>
@@ -83,6 +85,7 @@ const ShoppingCartDrawer = ({setState,state}) => {
                         </Grid>)
                 }
             </div>  
+            <div className='fixed' >
             <div className="total d-flex justify-content-between my-3">
                 <h4>SubTotal : </h4>    
                 <h4>$ {grandTotalAmount ? grandTotalAmount : 0}</h4>    
@@ -90,6 +93,7 @@ const ShoppingCartDrawer = ({setState,state}) => {
             <div className="button">
                 <Link to='/shoppingCart' className="btn btn-danger w-100 py-2 mb-3">View Cart</Link>
                 <button onClick={() => setState(false)} className="btn btn-danger w-100 py-2">Continue Shopping</button>
+            </div>
             </div>
             </Box>
         </Box>

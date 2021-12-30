@@ -8,7 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from 'react-redux';
-import { productMinus, productPlus, updateCart, productsAddToCart } from '../redux/action/productAction';
+import { productMinus, productPlus, updateCart, productsAddToCart, deleteFromCart } from '../redux/action/productAction';
 import { useNavigate } from 'react-router-dom';
 import NavigationBar from '../Shared/Header/NavigationBar';
 
@@ -106,6 +106,7 @@ const ShoppingCart = () => {
       <TableCell align="left">Unit Price</TableCell>
       <TableCell align="left">Quantity</TableCell>
       <TableCell align="left">Amount</TableCell>
+      <TableCell align="left">Remove Item</TableCell>
     </TableRow>
   </TableHead>
   <TableBody>
@@ -128,12 +129,13 @@ const ShoppingCart = () => {
                   <i onClick={() => quantityPlus(row._id)} className="fas fs-5 fw-bold fa-plus text-danger"></i>
                   </div></TableCell>
           <TableCell  align="left">$ {!row.totalAmount ? 0 : row.totalAmount}</TableCell>
+          <TableCell  align="left"><button onClick={() => dispatch(deleteFromCart(row._id))} className='btn btn-danger'>Remove</button></TableCell>
       </TableRow>
     ))}
   </TableBody>
 </Table>
 </TableContainer>
-<button required onClick={handleUpdateCart} className="btn btn-danger mt-5">Update Cart</button>
+
 
 <Grid sx={{mt:5}} container spacing={2}>
         <Grid  item xs={12} lg={6}>

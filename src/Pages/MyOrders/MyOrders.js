@@ -41,6 +41,9 @@ const MyOrders = () => {
         <NavigationBar></NavigationBar>
         <Container >
             <div className="py-5">
+                <div className="heading mb-5">
+                <h1>My Order</h1>
+                </div>
             {
                 myOrder.map(my => 
                     <div className='mb-5'><Table striped bordered  className='text-center text-white bg-danger'>
@@ -71,7 +74,7 @@ const MyOrders = () => {
                     </Table>
                     <div>
                     {
-                        my.transaction && my.last4 ? <button className="ms-3 btn btn-warning">Paid</button> : <Link to={`/checkOut/${my._id}`}><button className="btn btn-warning">Pay Now</button></Link>
+                        my.transaction && my.last4 ? <button className=" btn btn-warning">Paid</button> : <Link to={`/checkOut/${my._id}`}><button className="btn btn-warning">Pay Now</button></Link>
                     }
                     <button onClick={() => handleDelete(my._id)} className="ms-3 btn btn-warning">Delete From My Order</button>
                     </div>
