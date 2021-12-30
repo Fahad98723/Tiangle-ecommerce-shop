@@ -19,7 +19,6 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
         .then(res => res.json())
         .then(data => setProduct(data))
     },[productId])
-    console.log(product);
    const dispatch = useDispatch()
    const count = useSelector((state) => state.products.count)
 
@@ -30,7 +29,6 @@ const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
    const handleAddInCart = () => {
         if(matched){
                 matched.quantity = matched.quantity + count
-                console.log(matched.quantity);
             }
         else{           
             cartProduct.quantity = count

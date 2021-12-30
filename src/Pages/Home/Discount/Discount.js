@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 const Discount = () => {
     const product = useProducts().products
     const fullSet = product.filter(p => p.category === 'Full Set')
-    console.log(fullSet);
+
     const bannerImage = {
         backgroundImage : `url('${fullSet[0]?.img}')`,
         backgroundRepeat:'no-repeat',

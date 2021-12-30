@@ -21,7 +21,6 @@ const T_Shirt = () => {
       const matched = cart?.find(c => c._id === recentProduct._id )
       if(matched){
         recentProduct.quantity = recentProduct.quantity + 1
-        console.log(matched.quantity);
       }
       else{           
         recentProduct.quantity = 1
@@ -34,7 +33,6 @@ const T_Shirt = () => {
       const handleClose = () => {
         dispatch(productCountZero(1))
         setOpen(false)};
-      console.log(productId)
       let navigate = useNavigate();
       function handleClick(id) {
         navigate(`/product/${id}`);
