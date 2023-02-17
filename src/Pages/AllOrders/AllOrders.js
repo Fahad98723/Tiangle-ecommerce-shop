@@ -10,7 +10,7 @@ const AllOrders = () => {
     const [allOrder, setAllOrder] = useState([])
     console.log(user.email);
     useEffect(() => {
-        fetch(`https://arcane-earth-75147.herokuapp.com/orders`)
+        fetch(`https://triangle-ecommerce-server.onrender.com/orders`)
         .then(res => res.json())
         .then(data => setAllOrder(data))
     },[user.email, setAllOrder])
@@ -19,7 +19,7 @@ const AllOrders = () => {
         // const confirm = window.confirm("Are You Sure You Want To Cancel ?")
         console.log(id);
         // if (confirm) {
-            fetch(`https://arcane-earth-75147.herokuapp.com/orders/${id}`,{
+            fetch(`https://triangle-ecommerce-server.onrender.com/orders/${id}`,{
             method : "DELETE"
         })
         .then(res => res.json())
@@ -40,7 +40,7 @@ const AllOrders = () => {
     //     const dataUpdate = {...data}
     //     console.log(dataUpdate);
     //     dataUpdate.status = 'Delivered'
-    //     fetch(`https://arcane-earth-75147.herokuapp.com/orders/${id}`,{
+    //     fetch(`https://triangle-ecommerce-server.onrender.com/orders/${id}`,{
     //         method : "PUT",
     //         headers : {
     //             'content-type' : 'application/json'

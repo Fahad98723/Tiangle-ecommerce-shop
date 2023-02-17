@@ -8,7 +8,7 @@ const ManageAllProducts = () => {
 
 
     useEffect(() => {
-        fetch('https://arcane-earth-75147.herokuapp.com/products')
+        fetch('https://triangle-ecommerce-server.onrender.com/products')
         .then(res => res.json())
         .then(data => setProducts(data))
     },[])
@@ -16,7 +16,7 @@ const ManageAllProducts = () => {
     const handleDelete = id => {
         const confirm = window.confirm('Are you sure you want to delete the product')
             if (confirm) {
-                fetch(`https://arcane-earth-75147.herokuapp.com/products/${id}`, {
+                fetch(`https://triangle-ecommerce-server.onrender.com/products/${id}`, {
                 method : "DELETE"
             })
             .then(res => res.json())

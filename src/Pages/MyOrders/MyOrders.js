@@ -11,7 +11,7 @@ const MyOrders = () => {
     const [myOrder, setMyOrder] = useState([])
     console.log(user.email);
     useEffect(() => {
-        fetch(`https://arcane-earth-75147.herokuapp.com/orders?email=${user.email}`)
+        fetch(`https://triangle-ecommerce-server.onrender.com/orders?email=${user.email}`)
         .then(res => res.json())
         .then(data => setMyOrder(data))
     },[user.email, setMyOrder])
@@ -20,7 +20,7 @@ const MyOrders = () => {
         // const confirm = window.confirm("Are You Sure You Want To Cancel ?")
         console.log(id);
         // if (confirm) {
-            fetch(`https://arcane-earth-75147.herokuapp.com/orders/${id}`,{
+            fetch(`https://triangle-ecommerce-server.onrender.com/orders/${id}`,{
             method : "DELETE"
         })
         .then(res => res.json())
@@ -74,7 +74,7 @@ const MyOrders = () => {
                     </Table>
                     <div>
                     {
-                        my.transaction && my.last4 ? <button className=" btn btn-warning">Paid</button> : <Link to={`/checkOut/${my._id}`}><button className="btn btn-warning">Pay Now</button></Link>
+                        my.transaction || my.payment ? <button className=" btn btn-warning">Paid</button> : <Link to={`/checkOut/${my._id}`}><button className="btn btn-warning">Pay Now</button></Link>
                     }
                     <button onClick={() => handleDelete(my._id)} className="ms-3 btn btn-warning">Delete From My Order</button>
                     </div>

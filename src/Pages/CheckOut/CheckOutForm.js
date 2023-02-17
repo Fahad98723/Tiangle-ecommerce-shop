@@ -26,7 +26,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
 
     console.log(totalAmount);
     useEffect(() => {
-      fetch('https://arcane-earth-75147.herokuapp.com/create-payment-intent', {
+      fetch('https://triangle-ecommerce-server.onrender.com/create-payment-intent', {
         method : "POST", 
         headers : {
           'content-type' : 'application/json'
@@ -91,7 +91,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
         if(!_id){
           const data = {cart, ...payment, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending'}
 
-        const uri = `https://arcane-earth-75147.herokuapp.com/orders`
+        const uri = `https://triangle-ecommerce-server.onrender.com/orders`
         fetch(uri, {
           method : 'POST',
           headers : {
@@ -101,7 +101,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
         })
         }
         else{
-          const url = `https://arcane-earth-75147.herokuapp.com/orders/${_id}`;
+          const url = `https://triangle-ecommerce-server.onrender.com/orders/${_id}`;
         fetch(url, {
             method: 'PUT',
             headers: {
@@ -128,7 +128,7 @@ const CheckOutForm = ({cart, singlePayment}) => {
     const handlePayLater = () => {
       console.log(cart);
       const data = {cart, email : user.email, name : user.displayName, city : cart?.city , grandTotalAmount : cart?.grandTotalAmount , shippingCost : cart?.shippingCost, totalAmount : cart?.totalAmount, status : 'Pending'}
-        const uri = `https://arcane-earth-75147.herokuapp.com/orders`
+        const uri = `https://triangle-ecommerce-server.onrender.com/orders`
         fetch(uri, {
           method : 'POST',
           headers : {

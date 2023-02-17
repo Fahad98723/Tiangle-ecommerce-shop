@@ -48,6 +48,12 @@ const Login = () => {
         .then((userCredential) => {
             const user = userCredential.user;
             setError('')
+            if (pathName) {
+                navigate(pathName)
+            }
+            else{
+                navigate('/')
+            }
         })
         .catch((error) => {
             const errorCode = error.code;

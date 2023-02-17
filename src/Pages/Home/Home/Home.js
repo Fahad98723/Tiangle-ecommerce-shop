@@ -13,7 +13,7 @@ const Home = () => {
     const user = useSelector(state => state.products.user)
     useEffect(() => {
 
-        fetch(`https://arcane-earth-75147.herokuapp.com/users`)
+        fetch(`https://triangle-ecommerce-server.onrender.com/users`)
             .then(res => res.json())
             .then(data => {
                 setAllUser(data)

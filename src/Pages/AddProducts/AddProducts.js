@@ -25,7 +25,7 @@ const AddProducts = () => {
         // console.log(category);
         // console.log(price);
         // console.log(image);
-        fetch('https://arcane-earth-75147.herokuapp.com/products', {
+        fetch('https://triangle-ecommerce-server.onrender.com/products', {
         method: 'post',
         body: formData
         })

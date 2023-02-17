@@ -15,7 +15,7 @@ import './QuickViewModal.css'
 const QuickViewModal = ({handleOpen, handleClose, open,productId}) => {
     const [product,setProduct] = useState({})
     useEffect(() => {
-        fetch(`https://arcane-earth-75147.herokuapp.com/products/${productId}`)
+        fetch(`https://triangle-ecommerce-server.onrender.com/products/${productId}`)
         .then(res => res.json())
         .then(data => setProduct(data))
     },[productId])

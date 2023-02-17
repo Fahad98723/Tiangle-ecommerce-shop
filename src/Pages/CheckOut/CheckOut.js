@@ -18,7 +18,7 @@ const CheckOut = () => {
     console.log(id);
     useEffect(() => {
         if(id){
-            fetch(`https://arcane-earth-75147.herokuapp.com/orders/${id}`)
+            fetch(`https://triangle-ecommerce-server.onrender.com/orders/${id}`)
             .then(res => res.json())
             .then(data => setSinglePayment(data))
         }

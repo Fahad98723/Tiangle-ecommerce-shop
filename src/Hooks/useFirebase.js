@@ -65,7 +65,7 @@ const useFirebase = () => {
 
     const saveUser = (email, name, method) => {
         const user = {email, name}
-        fetch('https://arcane-earth-75147.herokuapp.com/users', {
+        fetch('https://triangle-ecommerce-server.onrender.com/users', {
             method : method,
             headers : {
                 'content-type' : 'application/json'
